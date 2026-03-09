@@ -224,7 +224,7 @@ const Index = () => {
                 className="w-full h-14 text-lg font-display rounded-xl border-2 border-secondary hover:bg-secondary hover:text-secondary-foreground transition-all"
               >
                 <Star className="h-5 w-5 mr-2" />
-                Venmo @YourHandle
+                Venmo @Jess-Schapiro
               </Button>
             </a>
           </div>
