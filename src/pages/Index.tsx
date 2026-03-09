@@ -32,8 +32,8 @@ const Index = () => {
   const handleUnlock = () => {
     if (passcodeInput.toLowerCase() === PASSCODE) {
       setUnlocked(true);
-      setDonateOpen(true);
       setError(false);
+      setTimeout(() => setDonateOpen(true), 100);
     } else {
       setError(true);
     }
