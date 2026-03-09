@@ -25,7 +25,7 @@ const Index = () => {
     const code = searchParams.get("code");
     if (code && code.toLowerCase() === PASSCODE) {
       setUnlocked(true);
-      setDonateOpen(true);
+      setTimeout(() => setDonateOpen(true), 100);
     }
   }, [searchParams]);
 
