@@ -214,7 +214,7 @@ const Index = () => {
               </Button>
             </a>
             <a
-              href="https://venmo.com/u/YOUR-VENMO-HANDLE"
+              href="https://venmo.com/u/Jess-Schapiro"
               target="_blank"
               rel="noopener noreferrer"
               className="block"
