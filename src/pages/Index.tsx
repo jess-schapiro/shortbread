@@ -113,9 +113,7 @@ const Index = () => {
             </div>
             <div className="space-y-3 text-foreground/80 font-body leading-relaxed">
               <p>
-
-
-
+                Hey! 👋 Thanks for grabbing a cookie. These are my take on the NYTCooking Salted Chocolate Chunk Shortbread Cookies. I hope you love them as much as I do.
               </p>
               <p>
                 If you're feeling generous, I'm raising money for{" "}
@@ -123,7 +121,7 @@ const Index = () => {
                   Big Brothers Big Sisters of Metropolitan Chicago
                 </strong>
                 . Every dollar helps create and support one-to-one mentoring
-                relationships for young people.
+                relationships for young people. There are hundreds of future littles waiting to be matched with bigs. Your donations help find and vet supportive, uplifting matches for these littles.
               </p>
               <p>No pressure at all; the cookies are free! But if you'd like to give, it would mean the world. 
 
