@@ -61,7 +61,7 @@ const Index = () => {
                 setPasscodeInput(e.target.value);
                 setError(false);
               }}
-              onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); handleUnlock(); } }}
+              onKeyDown={(e) => {if (e.key === "Enter") {e.preventDefault();handleUnlock();}}}
               className="text-center text-lg font-display rounded-xl border-2 border-secondary focus:border-primary h-12" />
             
             {error &&
@@ -96,7 +96,7 @@ const Index = () => {
           <p className="text-lg text-muted-foreground font-body">
             Salted Chocolate Chunk Shortbread Cookies
             <br />
-            <span className="text-sm">baked with love ❤️</span>
+            <span className="text-sm">baked with love ❤️ and butter</span>
           </p>
         </div>
       </section>
@@ -113,9 +113,9 @@ const Index = () => {
             </div>
             <div className="space-y-3 text-foreground/80 font-body leading-relaxed">
               <p>
-                Hey there! 👋 Thanks for grabbing a cookie. These are my take on
-                the famous NYT Salted Chocolate Chunk Shortbread Cookies — I
-                hope you love them as much as I do.
+
+
+
               </p>
               <p>
                 If you're feeling generous, I'm raising money for{" "}
