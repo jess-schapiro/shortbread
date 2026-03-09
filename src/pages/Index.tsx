@@ -206,13 +206,13 @@ const Index = () => {
               rel="noopener noreferrer"
               className="block"
             >
-              <div className="w-full p-4 rounded-xl border-2 border-primary hover:bg-primary/10 transition-all text-left flex items-center gap-3">
+              <div className="w-full p-4 rounded-xl border-2 border-primary bg-cookie-chocolate/80 hover:bg-cookie-chocolate transition-all text-left flex items-center gap-3">
                 <img src="/bbbs-logo.png" alt="BBBS Logo" className="h-10 w-10 object-contain flex-shrink-0" />
                 <div>
-                  <div className="font-display text-lg font-semibold text-foreground">
+                  <div className="font-display text-lg font-semibold text-primary-foreground">
                     BBBS Campaign Page
                   </div>
-                  <p className="text-sm text-muted-foreground font-body mt-0.5">
+                  <p className="text-sm text-primary-foreground/70 font-body mt-0.5">
                     Official receipt for tax-deductible donations
                   </p>
                 </div>
@@ -224,13 +224,13 @@ const Index = () => {
               rel="noopener noreferrer"
               className="block"
             >
-              <div className="w-full p-4 rounded-xl border-2 border-secondary hover:bg-secondary/30 transition-all text-left flex items-center gap-3">
-                <img src="/venmo-logo.png" alt="Venmo Logo" className="h-10 w-10 object-contain flex-shrink-0" />
+              <div className="w-full p-4 rounded-xl border-2 border-secondary bg-cookie-brown/80 hover:bg-cookie-brown transition-all text-left flex items-center gap-3">
+                <img src="/venmo-logo.png" alt="Venmo Logo" className="h-10 w-10 object-contain flex-shrink-0 invert" />
                 <div>
-                  <div className="font-display text-lg font-semibold text-foreground">
+                  <div className="font-display text-lg font-semibold text-primary-foreground">
                     Venmo Jess
                   </div>
-                  <p className="text-sm text-muted-foreground font-body mt-0.5">
+                  <p className="text-sm text-primary-foreground/70 font-body mt-0.5">
                     Super quick and easy
                   </p>
                 </div>
