@@ -7,8 +7,8 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
+  DialogDescription } from
+"@/components/ui/dialog";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, ExternalLink, Cookie, Users, Star } from "lucide-react";
 
@@ -61,23 +61,23 @@ const Index = () => {
                 setError(false);
               }}
               onKeyDown={(e) => e.key === "Enter" && handleUnlock()}
-              className="text-center text-lg font-display rounded-xl border-2 border-secondary focus:border-primary h-12"
-            />
-            {error && (
-              <p className="text-accent text-sm font-body">
+              className="text-center text-lg font-display rounded-xl border-2 border-secondary focus:border-primary h-12" />
+            
+            {error &&
+            <p className="text-accent text-sm font-body">
                 Hmm, that's not it. Try again! 🤔
               </p>
-            )}
+            }
             <Button
               onClick={handleUnlock}
-              className="w-full h-12 text-lg font-display rounded-xl bg-primary text-primary-foreground hover:bg-primary/90"
-            >
+              className="w-full h-12 text-lg font-display rounded-xl bg-primary text-primary-foreground hover:bg-primary/90">
+              
               Unlock 🔓
             </Button>
           </div>
         </div>
-      </div>
-    );
+      </div>);
+
   }
 
   return (
@@ -124,9 +124,9 @@ const Index = () => {
                 . Every dollar helps create and support one-to-one mentoring
                 relationships for young people in our community.
               </p>
-              <p>
-                No pressure at all — the cookies are free! But if you'd like to
-                give, it would mean the world. 💛
+              <p>No pressure at all; the cookies are free! But if you'd like to give, it would mean the world. 
+
+
               </p>
             </div>
           </CardContent>
@@ -153,19 +153,19 @@ const Index = () => {
               </p>
               <div className="grid grid-cols-2 gap-3 py-2">
                 {[
-                  { emoji: "🤝", label: "1-to-1 Mentoring" },
-                  { emoji: "💡", label: "Youth Empowerment" },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="text-center p-3 bg-card rounded-xl border border-border"
-                  >
+                { emoji: "🤝", label: "1-to-1 Mentoring" },
+                { emoji: "💡", label: "Youth Empowerment" }].
+                map((item) =>
+                <div
+                  key={item.label}
+                  className="text-center p-3 bg-card rounded-xl border border-border">
+                  
                     <div className="text-2xl mb-1">{item.emoji}</div>
                     <div className="text-xs font-display font-medium text-muted-foreground">
                       {item.label}
                     </div>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </CardContent>
@@ -176,8 +176,8 @@ const Index = () => {
       <section className="px-4 py-8 max-w-lg mx-auto text-center">
         <Button
           onClick={() => setDonateOpen(true)}
-          className="h-14 px-10 text-xl font-display rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all hover:scale-105"
-        >
+          className="h-14 px-10 text-xl font-display rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all hover:scale-105">
+          
           <Heart className="h-5 w-5 mr-2" />
           Donate
         </Button>
@@ -202,8 +202,8 @@ const Index = () => {
               href="https://donate.bbbschgo.org/fundraiser/6598504"
               target="_blank"
               rel="noopener noreferrer"
-              className="block"
-            >
+              className="block">
+              
               <div className="w-full p-4 rounded-xl border-2 border-primary bg-cookie-chocolate/80 hover:bg-cookie-chocolate transition-all text-left flex items-center gap-3">
                 <img src="/bbbs-logo.png" alt="BBBS Logo" className="h-10 w-10 object-contain flex-shrink-0" />
                 <div>
@@ -220,8 +220,8 @@ const Index = () => {
               href="https://venmo.com/u/Jess-Schapiro"
               target="_blank"
               rel="noopener noreferrer"
-              className="block"
-            >
+              className="block">
+              
               <div className="w-full p-4 rounded-xl border-2 border-secondary bg-cookie-brown/80 hover:bg-cookie-brown transition-all text-left flex items-center gap-3">
                 <img src="/venmo-logo.png" alt="Venmo Logo" className="h-10 w-10 object-contain flex-shrink-0 invert" />
                 <div>
@@ -245,8 +245,8 @@ const Index = () => {
       <footer className="text-center py-8 text-sm text-muted-foreground font-body">
         <p>Made with 🍪 and ❤️ by Jess</p>
       </footer>
-    </div>
-  );
+    </div>);
+
 };
 
 export default Index;
