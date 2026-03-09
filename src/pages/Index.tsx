@@ -122,7 +122,7 @@ const Index = () => {
                   Big Brothers Big Sisters of Metropolitan Chicago
                 </strong>
                 . Every dollar helps create and support one-to-one mentoring
-                relationships for young people in our community.
+                relationships for young people.
               </p>
               <p>No pressure at all; the cookies are free! But if you'd like to give, it would mean the world. 
 
