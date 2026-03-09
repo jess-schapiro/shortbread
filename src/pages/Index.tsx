@@ -61,7 +61,7 @@ const Index = () => {
                 setPasscodeInput(e.target.value);
                 setError(false);
               }}
-              onKeyDown={(e) => e.key === "Enter" && handleUnlock()}
+              onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); handleUnlock(); } }}
               className="text-center text-lg font-display rounded-xl border-2 border-secondary focus:border-primary h-12" />
             
             {error &&
