@@ -206,13 +206,15 @@ const Index = () => {
               rel="noopener noreferrer"
               className="block"
             >
-              <Button
-                variant="outline"
-                className="w-full h-14 text-lg font-display rounded-xl border-2 border-primary hover:bg-primary hover:text-primary-foreground transition-all"
-              >
-                <ExternalLink className="h-5 w-5 mr-2" />
-                BBBS Campaign Page
-              </Button>
+              <div className="w-full p-4 rounded-xl border-2 border-primary hover:bg-primary/10 transition-all text-left">
+                <div className="flex items-center gap-2 font-display text-lg font-semibold text-foreground">
+                  <ExternalLink className="h-5 w-5 text-primary" />
+                  BBBS Campaign Page
+                </div>
+                <p className="text-sm text-muted-foreground font-body mt-1 ml-7">
+                  Official receipt for tax-deductible donations
+                </p>
+              </div>
             </a>
             <a
               href="https://venmo.com/u/Jess-Schapiro"
@@ -220,13 +222,15 @@ const Index = () => {
               rel="noopener noreferrer"
               className="block"
             >
-              <Button
-                variant="outline"
-                className="w-full h-14 text-lg font-display rounded-xl border-2 border-secondary hover:bg-secondary hover:text-secondary-foreground transition-all"
-              >
-                <Star className="h-5 w-5 mr-2" />
-                Venmo @Jess-Schapiro
-              </Button>
+              <div className="w-full p-4 rounded-xl border-2 border-secondary hover:bg-secondary/30 transition-all text-left">
+                <div className="flex items-center gap-2 font-display text-lg font-semibold text-foreground">
+                  <Star className="h-5 w-5 text-secondary" />
+                  Venmo @Jess-Schapiro
+                </div>
+                <p className="text-sm text-muted-foreground font-body mt-1 ml-7">
+                  Super quick and easy
+                </p>
+              </div>
             </a>
           </div>
           <p className="text-xs text-center text-muted-foreground font-body pt-1">
