@@ -25,15 +25,15 @@ const Index = () => {
     const code = searchParams.get("code");
     if (code && code.toLowerCase() === PASSCODE) {
       setUnlocked(true);
-      setDonateOpen(true);
+      setTimeout(() => setDonateOpen(true), 100);
     }
   }, [searchParams]);
 
   const handleUnlock = () => {
     if (passcodeInput.toLowerCase() === PASSCODE) {
       setUnlocked(true);
-      setDonateOpen(true);
       setError(false);
+      setTimeout(() => setDonateOpen(true), 100);
     } else {
       setError(true);
     }
