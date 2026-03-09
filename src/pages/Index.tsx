@@ -120,10 +120,9 @@ const Index = () => {
                 If you're feeling generous, I'm raising money for{" "}
                 <strong className="text-primary">
                   Big Brothers Big Sisters of Metropolitan Chicago
-                </strong>{" "}
-                through their Bowl For Kids' Sake 2025 campaign. Every dollar
-                helps create and support one-to-one mentoring relationships for
-                young people in our community.
+                </strong>
+                . Every dollar helps create and support one-to-one mentoring
+                relationships for young people in our community.
               </p>
               <p>
                 No pressure at all — the cookies are free! But if you'd like to
@@ -154,7 +153,7 @@ const Index = () => {
               </p>
               <div className="grid grid-cols-3 gap-3 py-2">
                 {[
-                  { emoji: "🎳", label: "Bowl For Kids' Sake 2025" },
+                  { emoji: "💛", label: "Support Chicago Youth" },
                   { emoji: "🤝", label: "1-to-1 Mentoring" },
                   { emoji: "💡", label: "Youth Empowerment" },
                 ].map((item) => (
