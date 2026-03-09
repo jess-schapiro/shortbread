@@ -12,7 +12,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, ExternalLink, Cookie, Users, Star } from "lucide-react";
 
-const PASSCODE = "cookies";
+const PASSCODE = "appleton2026";
 
 const Index = () => {
   const [searchParams] = useSearchParams();
