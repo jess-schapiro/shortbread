@@ -151,9 +151,8 @@ const Index = () => {
                 creates and supports one-to-one mentoring relationships that
                 ignite the power and promise of young people.
               </p>
-              <div className="grid grid-cols-3 gap-3 py-2">
+              <div className="grid grid-cols-2 gap-3 py-2">
                 {[
-                  { emoji: "💛", label: "Support Chicago Youth" },
                   { emoji: "🤝", label: "1-to-1 Mentoring" },
                   { emoji: "💡", label: "Youth Empowerment" },
                 ].map((item) => (
