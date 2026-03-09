@@ -150,7 +150,10 @@ const Index = () => {
                   Big Brothers Big Sisters of Metropolitan Chicago
                 </strong>{" "}
                 creates and supports one-to-one mentoring relationships that
-                ignite the power and promise of young people.
+                ignite the power and promise of young people.{" "}
+                <a href="https://bbbschgo.org/about/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors">
+                  Learn more ↗
+                </a>
               </p>
               <div className="grid grid-cols-2 gap-3 py-2">
                 {[
