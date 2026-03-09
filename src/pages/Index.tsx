@@ -206,7 +206,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="block"
             >
-              <div className="w-full p-4 rounded-xl border-2 border-primary hover:bg-primary/10 transition-all text-left flex items-center gap-3">
+              <div className="w-full p-4 rounded-xl border-2 border-primary bg-cookie-chocolate/80 hover:bg-cookie-chocolate transition-all text-left flex items-center gap-3">
                 <img src="/bbbs-logo.png" alt="BBBS Logo" className="h-10 w-10 object-contain flex-shrink-0" />
                 <div>
                   <div className="font-display text-lg font-semibold text-foreground">
