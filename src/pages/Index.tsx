@@ -153,7 +153,7 @@ const Index = () => {
               </p>
               <div className="grid grid-cols-3 gap-3 py-2">
                 {[
-                  { emoji: "🎳", label: "Bowl For Kids' Sake 2025" },
+                  { emoji: "💛", label: "Support Chicago Youth" },
                   { emoji: "🤝", label: "1-to-1 Mentoring" },
                   { emoji: "💡", label: "Youth Empowerment" },
                 ].map((item) => (
