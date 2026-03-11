@@ -4,33 +4,33 @@ const STORAGE_KEY = "bakesale-config";
 
 export const DEFAULT_CONFIG: BakesaleConfig = {
   recipe: {
-    name: "Salted Chocolate Chunk Shortbread Cookies",
-    description: "baked with love ❤️ and butter",
+    name: "Chocolate Chip Cookies",
+    description: "baked with love ❤️",
     emoji: "🍪",
   },
-  passcode: "appleton2026",
+  passcode: "bakesale2026",
   personalMessage:
-    "Hey! 👋 Thanks for grabbing a cookie. These are my take on the NYTCooking Salted Chocolate Chunk Shortbread Cookies. I hope you love them as much as I do.\n\nIf you're feeling generous, I'm raising money for **Big Brothers Big Sisters of Metropolitan Chicago**. Every dollar helps create and support one-to-one mentoring relationships for young people. There are hundreds of future littles waiting to be matched with bigs. Your donations help find and vet supportive, uplifting matches for these littles.\n\nNo pressure at all; the cookies are free! But if you'd like to give, it would mean the world.",
-  bakerName: "Jess",
+    "Hey! 👋 Thanks for grabbing a treat.\n\nIf you're feeling generous, I'm raising money for **Your Favorite Charity**. Every dollar helps make a difference.\n\nNo pressure at all; the cookies are free! But if you'd like to give, it would mean the world.",
+  bakerName: "Your Name",
   beneficiary: {
-    name: "Big Brothers Big Sisters of Metropolitan Chicago",
-    aboutUrl: "https://bbbschgo.org/about/",
+    name: "Your Favorite Charity",
+    aboutUrl: "https://example.org/about",
     description:
-      "Creates and supports one-to-one mentoring relationships that ignite the power and promise of young people.",
+      "A brief description of the organization you're raising money for.",
   },
   donationOptions: [
     {
       id: "1",
-      type: "classy",
-      label: "BBBS Campaign Page",
-      url: "https://donate.bbbschgo.org/fundraiser/6598504",
-      subtitle: "Official receipt for tax-deductible donations",
+      type: "other",
+      label: "Donate Online",
+      url: "https://example.org/donate",
+      subtitle: "Official donation page",
     },
     {
       id: "2",
       type: "venmo",
-      label: "Venmo Jess",
-      url: "https://venmo.com/u/Jess-Schapiro",
+      label: "Venmo @yourname",
+      url: "https://venmo.com/u/yourname",
       subtitle: "Super quick and easy",
     },
   ],

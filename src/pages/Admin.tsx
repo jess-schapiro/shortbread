@@ -17,7 +17,7 @@ import type { BakesaleConfig, DonationOption, DonationType } from "@/types/bakes
 import { getConfig, saveConfig, generateShareLink } from "@/lib/bakesale-config";
 import { toast } from "@/hooks/use-toast";
 
-const ADMIN_PASSWORD = "bakesaleadmin";
+const ADMIN_PASSWORD = "admin";
 
 const DONATION_TYPES: { value: DonationType; label: string }[] = [
   { value: "venmo", label: "Venmo" },
