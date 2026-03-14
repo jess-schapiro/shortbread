@@ -187,8 +187,8 @@ const Index = () => {
               </p>
               <div className="grid grid-cols-2 gap-3 py-2">
                 {[
-                  { emoji: "🤝", label: "1-to-1 Mentoring" },
-                  { emoji: "💡", label: "Youth Empowerment" },
+                  { emoji: "❤️", label: "Community Impact" },
+                  { emoji: "💡", label: "Making a Difference" },
                 ].map((item) => (
                   <div
                     key={item.label}

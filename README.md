@@ -1,73 +1,71 @@
-# Welcome to your Lovable project
+# 🍪 Bakesale Starter Kit
 
-## Project info
+A beautiful, mobile-first donation page for bake sales and fundraisers. Set up your recipe, cause, and donation links through the admin wizard — then share a QR code link with visitors.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Screenshots
 
-## How can I edit this code?
+| Landing | Main Page | Donation Modal | Admin Wizard |
+|---------|-----------|----------------|--------------|
+| ![Landing](docs/product-shot-landing.png) | ![Main](docs/product-shot-main.png) | ![Modal](docs/product-shot-modal.png) | ![Admin](docs/product-shot-admin.png) |
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Passcode-gated landing page** — visitors scan a QR code or enter a passcode
+- **Configurable donation options** — Venmo, PayPal, Zelle, Cash App, Classy, or custom links
+- **Admin setup wizard** — step-by-step configuration with live preview link generation
+- **Personal message** with bold formatting and line breaks
+- **Beneficiary section** with org info and learn-more link
+- **localStorage-powered** — no backend required; config lives in the browser
+- **Mobile-first design** — warm, cookie-themed UI built with Tailwind CSS
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Quick Start
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repo
 git clone <YOUR_GIT_URL>
+cd bakesale-starter-kit
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start dev server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Setup
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. Visit `/admin` in your browser (default password: `admin`)
+2. Walk through the 5-step wizard:
+   - **Recipe** — name, description, emoji
+   - **Passcode & Baker** — set the unlock code and your name
+   - **Personal Message** — write your note (supports **bold** and line breaks)
+   - **Beneficiary** — organization name, description, and link
+   - **Donation Options** — add Venmo, PayPal, Classy, etc.
+3. Click **Save & Generate Link** to get your shareable URL
+4. Point a QR code to that URL — visitors enter the passcode and see your page!
 
-**Use GitHub Codespaces**
+## Tech Stack
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- [React](https://react.dev) + [TypeScript](https://typescriptlang.org)
+- [Vite](https://vitejs.dev) for fast builds
+- [Tailwind CSS](https://tailwindcss.com) for styling
+- [shadcn/ui](https://ui.shadcn.com) for UI components
+- localStorage for configuration persistence
 
-## What technologies are used for this project?
+## Customization
 
-This project is built with:
+All default content lives in `src/lib/bakesale-config.ts`. Edit `DEFAULT_CONFIG` to change the defaults, or use the admin wizard at runtime.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The color theme is defined in `src/index.css` using CSS custom properties — tweak `--primary`, `--secondary`, `--accent`, etc. to match your vibe.
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Deploy anywhere that hosts static sites:
 
-## Can I connect a custom domain to my Lovable project?
+- **[Lovable](https://lovable.dev)** — click Share → Publish
+- **Vercel / Netlify** — connect your repo and deploy
+- **GitHub Pages** — build with `npm run build` and serve the `dist` folder
 
-Yes, you can!
+## License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+MIT
