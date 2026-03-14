@@ -1,6 +1,12 @@
 # 🍪 Bakesale Starter Kit
 
-A beautiful, mobile-first donation page for bake sales and fundraisers. Set up your recipe, cause, and donation links through the admin wizard — then share a QR code link with visitors.
+A mobile-first donation page for bake sales and fundraisers. Set up your recipe, cause, and donation links through the admin wizard, then create and share a QR code link with visitors.
+
+# Why I Built This
+
+At my last bakesale, I used the non-profit's donation link to route donations. Unfotunately, the donation flow required adding a credit card, entering an address, contact information, etc. Each donation took roughly 90 seconds, and some folks left because they didn't want to enter all of their personal information, they just wanted a cookie. 
+
+To address this, I made this tool that allows users to choose their donation method: P2P payments for quick and speedy transactions, or the official link if they're looking for a receipt.
 
 ## Screenshots
 
