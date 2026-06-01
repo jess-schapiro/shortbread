@@ -20,18 +20,18 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
   },
   donationOptions: [
     {
-      id: "1",
-      type: "classy",
-      label: "Donate to BBBSChi",
-      url: "https://bbbschgo.org/?campaign=467476",
-      subtitle: "Tax-deductible, goes straight to BBBS",
-    },
-    {
       id: "2",
       type: "venmo",
       label: "Venmo @Jess-Schapiro",
       url: "https://venmo.com/u/Jess-Schapiro",
       subtitle: "Quick and easy — I'll forward it on",
+    },
+    {
+      id: "1",
+      type: "classy",
+      label: "Donate to BBBSChi",
+      url: "https://bbbschgo.org/?campaign=467476",
+      subtitle: "Tax-deductible, goes straight to BBBS",
     },
   ],
 };
