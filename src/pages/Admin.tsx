@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -31,11 +30,7 @@ const DONATION_TYPES: { value: DonationType; label: string }[] = [
 const STEPS = ["Recipe", "Passcode & Baker", "Personal Message", "Beneficiary", "Donation Options"];
 
 const Admin = () => {
-  const [searchParams] = useSearchParams();
-  const [authed, setAuthed] = useState(() => {
-    const pw = searchParams.get("pw");
-    return pw === ADMIN_PASSWORD;
-  });
+  const [authed, setAuthed] = useState(false);
   const [pwInput, setPwInput] = useState("");
   const [step, setStep] = useState(0);
   const [config, setConfig] = useState<BakesaleConfig>(getConfig);
