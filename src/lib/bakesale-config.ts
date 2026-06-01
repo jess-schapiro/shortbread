@@ -8,7 +8,7 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
     description: "baked with love ❤️",
     emoji: "🍪",
   },
-  passcode: "bakesale2026",
+  passcode: "MNPLS2026",
   personalMessage:
     "Hey! 👋 Thanks for grabbing a treat.\n\nIf you're feeling generous, I'm raising money for **Your Favorite Charity**. Every dollar helps make a difference.\n\nNo pressure at all — the treats are free! But if you'd like to give, it would mean the world.",
   bakerName: "Your Name",
