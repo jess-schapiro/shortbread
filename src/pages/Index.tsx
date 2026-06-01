@@ -185,17 +185,20 @@ const Index = () => {
                   Learn more ↗
                 </a>
               </p>
-              <div className="grid grid-cols-2 gap-3 py-2">
+              <div className="grid grid-cols-3 gap-2 py-2">
                 {[
-                  { emoji: "❤️", label: "Community Impact" },
-                  { emoji: "💡", label: "Making a Difference" },
+                  { stat: "80%", label: "of Littles improved emotional regulation" },
+                  { stat: "90%", label: "stayed on track or improved peer relationships" },
+                  { stat: "95%", label: "of senior Littles graduate with a plan for the future" },
                 ].map((item) => (
                   <div
-                    key={item.label}
+                    key={item.stat}
                     className="text-center p-3 bg-card rounded-xl border border-border"
                   >
-                    <div className="text-2xl mb-1">{item.emoji}</div>
-                    <div className="text-xs font-display font-medium text-muted-foreground">
+                    <div className="text-2xl font-display font-bold text-primary mb-1">
+                      {item.stat}
+                    </div>
+                    <div className="text-[10px] leading-tight font-body text-muted-foreground">
                       {item.label}
                     </div>
                   </div>
