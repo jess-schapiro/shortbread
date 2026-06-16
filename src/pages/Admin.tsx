@@ -143,24 +143,36 @@ const Admin = () => {
                 <div className="space-y-2">
                   <Label className="font-display">Recipe Name</Label>
                   <Input
-                    value={config.recipe.name}
-                    onChange={(e) => update({ recipe: { ...config.recipe, name: e.target.value } })}
+                    value={config.recipes[0]?.name || ""}
+                    onChange={(e) => {
+                      const recipes = [...config.recipes];
+                      recipes[0] = { ...recipes[0], name: e.target.value };
+                      update({ recipes });
+                    }}
                     placeholder="e.g. Salted Chocolate Chunk Shortbread Cookies"
                   />
                 </div>
                 <div className="space-y-2">
                   <Label className="font-display">Short Description</Label>
                   <Input
-                    value={config.recipe.description}
-                    onChange={(e) => update({ recipe: { ...config.recipe, description: e.target.value } })}
+                    value={config.recipes[0]?.description || ""}
+                    onChange={(e) => {
+                      const recipes = [...config.recipes];
+                      recipes[0] = { ...recipes[0], description: e.target.value };
+                      update({ recipes });
+                    }}
                     placeholder="e.g. baked with love ❤️ and butter"
                   />
                 </div>
                 <div className="space-y-2">
                   <Label className="font-display">Emoji</Label>
                   <Input
-                    value={config.recipe.emoji}
-                    onChange={(e) => update({ recipe: { ...config.recipe, emoji: e.target.value } })}
+                    value={config.recipes[0]?.emoji || ""}
+                    onChange={(e) => {
+                      const recipes = [...config.recipes];
+                      recipes[0] = { ...recipes[0], emoji: e.target.value };
+                      update({ recipes });
+                    }}
                     placeholder="🍪"
                     className="w-20 text-center text-2xl"
                   />
