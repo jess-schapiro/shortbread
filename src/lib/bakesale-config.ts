@@ -5,7 +5,7 @@ const STORAGE_KEY = "bakesale-config";
 export const DEFAULT_CONFIG: BakesaleConfig = {
   recipes: [
     {
-      name: "Salted Chocolate Chunk Shortbread Cookies",
+      name: "Pecan Shortbread Cookies",
       description: "Sally's Baking Addiction — buttery pecan shortbread",
       emoji: "🍪",
       sourceUrl: "https://sallysbakingaddiction.com/pecan-shortbread/",
@@ -65,6 +65,12 @@ export function getConfig(): BakesaleConfig {
       if (parsed.recipe && !parsed.recipes) {
         parsed.recipes = [parsed.recipe];
         delete (parsed as unknown as Record<string, unknown>).recipe;
+      }
+      const hasOldSingleCookieTitle = parsed.recipes?.some(
+        (recipe) => recipe.name === "Salted Chocolate Chunk Shortbread Cookies"
+      );
+      if (!parsed.recipes || parsed.recipes.length < 2 || hasOldSingleCookieTitle) {
+        parsed.recipes = DEFAULT_CONFIG.recipes;
       }
       return parsed as BakesaleConfig;
     }
