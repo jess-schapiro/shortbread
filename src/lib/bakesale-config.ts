@@ -51,7 +51,7 @@ export function getConfig(): BakesaleConfig {
       // Migrate old single-recipe config
       if (parsed.recipe && !parsed.recipes) {
         parsed.recipes = [parsed.recipe];
-        delete (parsed as Record<string, unknown>).recipe;
+        delete (parsed as unknown as Record<string, unknown>).recipe;
       }
       return parsed as BakesaleConfig;
     }
