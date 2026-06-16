@@ -3,11 +3,18 @@ import type { BakesaleConfig } from "@/types/bakesale";
 const STORAGE_KEY = "bakesale-config";
 
 export const DEFAULT_CONFIG: BakesaleConfig = {
-  recipe: {
-    name: "Salted Chocolate Chunk Shortbread Cookies",
-    description: "NYT Cooking — baked with love ❤️ and lots of butter",
-    emoji: "🍪",
-  },
+  recipes: [
+    {
+      name: "Salted Chocolate Chunk Shortbread Cookies",
+      description: "Sally's Baking Addiction — buttery pecan shortbread",
+      emoji: "🍪",
+    },
+    {
+      name: "Supersized Super Soft Chocolate Chip Cookies",
+      description: "King Arthur Baking — classic chocolate chip, extra soft",
+      emoji: "🍪",
+    },
+  ],
   passcode: "MNPLS2026",
   personalMessage:
     "Hey! 👋 Thanks for grabbing a cookie.\n\nI'm working to get more Littles off the waitlist and into meaningful mentorships with **Big Brothers Big Sisters of Metropolitan Chicago**. Every dollar helps.\n\nNo pressure at all — the cookies are free! But if you'd like to give, it would mean the world. 💛",
@@ -39,7 +46,15 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
 export function getConfig(): BakesaleConfig {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) return JSON.parse(stored) as BakesaleConfig;
+    if (stored) {
+      const parsed = JSON.parse(stored) as BakesaleConfig & { recipe?: { name: string; description: string; emoji: string } };
+      // Migrate old single-recipe config
+      if (parsed.recipe && !parsed.recipes) {
+        parsed.recipes = [parsed.recipe];
+        delete (parsed as Record<string, unknown>).recipe;
+      }
+      return parsed as BakesaleConfig;
+    }
   } catch {
     // fall through
   }
