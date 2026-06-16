@@ -88,7 +88,7 @@ const Index = () => {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background p-4">
         <div className="w-full max-w-sm text-center space-y-6">
-          <div className="text-6xl animate-bounce-soft">{config.recipe.emoji}</div>
+          <div className="text-6xl animate-bounce-soft">{config.recipes[0]?.emoji || "🍪"}</div>
           <h1 className="text-3xl font-display font-bold text-foreground">
             Grab a Cookie,
             <br />
@@ -133,17 +133,23 @@ const Index = () => {
       <section className="relative overflow-hidden px-4 pt-12 pb-8 text-center">
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-lg mx-auto space-y-4">
-          <div className="text-7xl">{config.recipe.emoji}</div>
+          <div className="text-7xl">{config.recipes[0]?.emoji || "🍪"}</div>
           <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground leading-tight">
             Grab a Cookie,
             <br />
             <span className="text-primary">Give if You Wish</span>
           </h1>
-          <p className="text-lg text-muted-foreground font-body">
-            {config.recipe.name}
-            <br />
-            <span className="text-sm">{config.recipe.description}</span>
-          </p>
+          <div className="space-y-1 text-lg text-muted-foreground font-body">
+            {config.recipes.map((recipe, i) => (
+              <div key={i}>
+                <span className="font-semibold text-foreground">{recipe.name}</span>
+                <span className="text-sm block">{recipe.description}</span>
+                {i < config.recipes.length - 1 && (
+                  <span className="text-xs text-muted-foreground">&</span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -263,7 +269,7 @@ const Index = () => {
             })}
           </div>
           <p className="text-xs text-center text-muted-foreground font-body pt-1">
-            Thank you for your generosity! {config.recipe.emoji}
+            Thank you for your generosity! {config.recipes[0]?.emoji || "🍪"}
           </p>
         </DialogContent>
       </Dialog>
