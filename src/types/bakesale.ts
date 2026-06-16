@@ -19,6 +19,10 @@ export interface Recipe {
   name: string;
   description: string;
   emoji: string;
+  sourceUrl?: string;
+  sourceName?: string;
+  ingredients?: string;
+  allergens?: string;
 }
 
 export interface BakesaleConfig {

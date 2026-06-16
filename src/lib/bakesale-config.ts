@@ -8,11 +8,24 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
       name: "Salted Chocolate Chunk Shortbread Cookies",
       description: "Sally's Baking Addiction — buttery pecan shortbread",
       emoji: "🍪",
+      sourceUrl: "https://sallysbakingaddiction.com/pecan-shortbread/",
+      sourceName: "Sally's Baking Addiction",
+      ingredients:
+        "Wheat flour, butter, brown sugar, granulated sugar, vanilla extract, cinnamon, salt, coarse sugar, and cinnamon and cream cheese pecans (pecans, sugar, brown sugar, natural flavors, whey, cream cheese, honey, vegetable oil [peanut and/or soy], xanthan gum).",
+      allergens:
+        "Contains: Wheat, Milk, Pecans (tree nuts). May contain peanuts and soy. Lovingly baked in a home kitchen that also handles wheat, dairy, eggs, tree nuts, peanuts and soy, so cross-contact may occur. Please enjoy at your own discretion if you have food allergies.",
     },
     {
       name: "Supersized Super Soft Chocolate Chip Cookies",
       description: "King Arthur Baking — classic chocolate chip, extra soft",
       emoji: "🍪",
+      sourceUrl:
+        "https://www.kingarthurbaking.com/recipes/supersized-super-soft-chocolate-chip-cookies-recipe",
+      sourceName: "King Arthur Baking",
+      ingredients:
+        "Wheat (bread) flour, butter, light brown sugar, whole milk, egg, vanilla extract, baking powder, baking soda, salt, and a blend of dark chocolate chips and chunks (dark chocolate, cane sugar, cocoa butter, dates, oats, sunflower lecithin, vanilla).",
+      allergens:
+        "Contains: Wheat, Milk, Egg, Oats. Lovingly baked in a home kitchen that also handles wheat, dairy, eggs, tree nuts, peanuts and soy, so cross-contact may occur. Please enjoy at your own discretion if you have food allergies.",
     },
   ],
   passcode: "MNPLS2026",
