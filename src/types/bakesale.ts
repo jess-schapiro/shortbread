@@ -15,12 +15,16 @@ export interface BeneficiaryOrg {
   logoUrl?: string;
 }
 
+export interface Recipe {
+  name: string;
+  description: string;
+  emoji: string;
+}
+
 export interface BakesaleConfig {
-  recipe: {
-    name: string;
-    description: string;
-    emoji: string;
-  };
+  /** @deprecated Use recipes instead */
+  recipe?: Recipe;
+  recipes: Recipe[];
   passcode: string;
   personalMessage: string;
   bakerName: string;
