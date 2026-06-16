@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -227,6 +227,14 @@ const Index = () => {
         <p className="text-sm text-muted-foreground mt-3 font-body">
           100% goes to {config.beneficiary.name}
         </p>
+        <div className="mt-5">
+          <Link
+            to="/cookies"
+            className="inline-flex items-center gap-1 text-sm font-body text-primary hover:text-primary/80 underline underline-offset-2"
+          >
+            🍪 See ingredients & allergen info
+          </Link>
+        </div>
       </section>
 
       {/* Donate Modal */}
