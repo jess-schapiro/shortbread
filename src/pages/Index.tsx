@@ -143,7 +143,7 @@ const Index = () => {
           <div className="flex items-center justify-center gap-4 rounded-sign bg-sign-dark px-6 py-5 text-left">
             <span className="font-display font-black text-6xl leading-none text-sign-amber">$5</span>
             <span className="font-display font-semibold text-2xl leading-tight text-sign-cream">
-              a bag. <span className="text-sign-amber">Any flavor.</span>
+              a bag. Any flavor.
             </span>
           </div>
           <div className="space-y-2 text-lg text-muted-foreground font-body pt-2">
