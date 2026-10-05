@@ -2,6 +2,9 @@ import type { BakesaleConfig } from "@/types/bakesale";
 
 const STORAGE_KEY = "bakesale-config";
 
+// Recipes that no longer exist; saved configs still referencing them get reset to defaults.
+const RETIRED_RECIPE_NAMES = ["Pecan Shortbread Cookies", "Supersized Super Soft Chocolate Chip Cookies"];
+
 export const DEFAULT_CONFIG: BakesaleConfig = {
   recipes: [
     {
