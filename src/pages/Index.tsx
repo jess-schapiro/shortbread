@@ -200,9 +200,9 @@ const Index = () => {
               </p>
               <div className="grid grid-cols-3 gap-2 py-2">
                 {[
-                  { stat: "80%", label: "of Littles improved emotional regulation" },
-                  { stat: "90%", label: "stayed on track or improved peer relationships" },
-                  { stat: "95%", label: "of senior Littles graduate with a plan for the future" },
+                  { stat: "80%", label: "of Littles demonstrated ability to regulate emotions" },
+                  { stat: "90%", label: "of Littles stayed on track or improved relationships with peers" },
+                  { stat: "97%", label: "of senior Littles graduate from high school with a plan for their future" },
                 ].map((item) => (
                   <div
                     key={item.stat}
