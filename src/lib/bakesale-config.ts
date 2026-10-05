@@ -43,7 +43,7 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
   ],
   passcode: "MNPLS2026",
   personalMessage:
-    "Hey! 👋 Thanks for grabbing a cookie.\n\nI'm working to get more Littles off the waitlist and into meaningful mentorships with **Big Brothers Big Sisters of Metropolitan Chicago**. Every dollar helps.\n\nNo pressure at all — the cookies are free! But if you'd like to give, it would mean the world. 💛",
+    "Hey! 👋 Thanks for stopping by the fall bake sale.\n\nEverything is **$5 a bag**: chocolate chip shortbread, maple walnut biscotti, and pumpkin spice puppy chow, all baked in my home kitchen.\n\nEvery dollar goes to **Big Brothers Big Sisters of Metropolitan Chicago**, helping get more Littles off the waitlist and into meaningful mentorships. 💛",
   bakerName: "Jess",
   beneficiary: {
     name: "Big Brothers Big Sisters of Metropolitan Chicago",
@@ -57,14 +57,14 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
       type: "venmo",
       label: "Venmo @Jess-Schapiro",
       url: "https://venmo.com/u/Jess-Schapiro",
-      subtitle: "Quick and easy — I'll forward it on",
+      subtitle: "$5 a bag, or give more if you like",
     },
     {
       id: "1",
       type: "classy",
       label: "Donate to BBBSChi",
       url: "https://donate.bbbschgo.org/fundraiser/7486540",
-      subtitle: "Tax-deductible, goes straight to BBBS",
+      subtitle: "Want to give more? Tax-deductible, goes straight to BBBS",
     },
   ],
 };
