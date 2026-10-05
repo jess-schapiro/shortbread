@@ -27,6 +27,39 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
       allergens:
         "Contains: Wheat, Milk, Egg, Oats. Lovingly baked in a home kitchen that also handles wheat, dairy, eggs, tree nuts, peanuts and soy, so cross-contact may occur. Please enjoy at your own discretion if you have food allergies.",
     },
+    {
+      name: "Chocolate Chip Shortbread",
+      description: "NYT Cooking — salted chocolate chunk shortbread",
+      emoji: "🍪",
+      sourceUrl: "https://cooking.nytimes.com/recipes/1019152-salted-chocolate-chunk-shortbread-cookies",
+      sourceName: "NYT Cooking",
+      ingredients:
+        "Wheat flour, salted butter, semi-sweet chocolate, sugar, light brown sugar, egg, turbinado sugar, vanilla extract.",
+      allergens:
+        "Contains: Wheat, Milk, Egg, Soy. May contain nuts. Lovingly baked in a home kitchen that also handles wheat, dairy, eggs, tree nuts, peanuts and soy, so cross-contact may occur. Please enjoy at your own discretion if you have food allergies.",
+    },
+    {
+      name: "Maple Walnut Biscotti",
+      description: "King Arthur Baking — crunchy maple walnut biscotti, extra maple flavor",
+      emoji: "☕",
+      sourceUrl: "https://www.kingarthurbaking.com/recipes/maple-walnut-biscotti-recipe",
+      sourceName: "King Arthur Baking",
+      ingredients:
+        "Wheat flour, walnuts, eggs, brown sugar, sugar, maple syrup, butter, baking powder, salt, maple extract.",
+      allergens:
+        "Contains: Wheat, Milk, Egg, Tree nuts (walnuts). Lovingly baked in a home kitchen that also handles wheat, dairy, eggs, tree nuts, peanuts and soy, so cross-contact may occur. Please enjoy at your own discretion if you have food allergies.",
+    },
+    {
+      name: "Pumpkin Spice Puppy Chow",
+      description: "Sally's Baking Addiction — pumpkin spice snack mix",
+      emoji: "🎃",
+      sourceUrl: "https://sallysbakingaddiction.com/pumpkin-spice-puppy-chow/",
+      sourceName: "Sally's Baking Addiction",
+      ingredients:
+        "Chex cereal, white chocolate chips, powdered sugar, cinnamon, nutmeg, cloves, allspice.",
+      allergens:
+        "Contains: Milk, Soy. May contain wheat, nuts. Lovingly baked in a home kitchen that also handles wheat, dairy, eggs, tree nuts, peanuts and soy, so cross-contact may occur. Please enjoy at your own discretion if you have food allergies.",
+    },
   ],
   passcode: "MNPLS2026",
   personalMessage:
