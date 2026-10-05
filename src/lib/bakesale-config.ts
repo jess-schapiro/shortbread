@@ -57,14 +57,14 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
       type: "venmo",
       label: "Venmo @Jess-Schapiro",
       url: "https://venmo.com/u/Jess-Schapiro",
-      subtitle: "$5 a bag, or give more if you like",
+      subtitle: "Quickest way to pay. Scan or tap and you're done.",
     },
     {
       id: "1",
       type: "classy",
       label: "Donate to BBBSChi",
       url: "https://donate.bbbschgo.org/fundraiser/7486540",
-      subtitle: "Want to give more? Tax-deductible, goes straight to BBBS",
+      subtitle: "Donate directly to BBBSChi and get a tax receipt.",
     },
   ],
 };
@@ -98,6 +98,18 @@ export function getConfig(): BakesaleConfig {
         hasSourceDescription
       ) {
         parsed.recipes = DEFAULT_CONFIG.recipes;
+      }
+      // Refresh outdated donation subtitles in saved configs, keeping labels, URLs, and everything else.
+      const OLD_SUBTITLES: Record<string, string> = {
+        "$5 a bag, or give more if you like": "Quickest way to pay. Scan or tap and you're done.",
+        "Want to give more? Tax-deductible, goes straight to BBBS":
+          "Donate directly to BBBSChi and get a tax receipt.",
+      };
+      if (parsed.donationOptions) {
+        parsed.donationOptions = parsed.donationOptions.map((opt) => ({
+          ...opt,
+          subtitle: OLD_SUBTITLES[opt.subtitle ?? ""] ?? opt.subtitle,
+        }));
       }
       return parsed as BakesaleConfig;
     }
