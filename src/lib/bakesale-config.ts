@@ -5,29 +5,6 @@ const STORAGE_KEY = "bakesale-config";
 export const DEFAULT_CONFIG: BakesaleConfig = {
   recipes: [
     {
-      name: "Pecan Shortbread Cookies",
-      description: "Sally's Baking Addiction — buttery pecan shortbread",
-      emoji: "🍪",
-      sourceUrl: "https://sallysbakingaddiction.com/pecan-shortbread/",
-      sourceName: "Sally's Baking Addiction",
-      ingredients:
-        "Wheat flour, butter, brown sugar, granulated sugar, vanilla extract, cinnamon, salt, coarse sugar, and cinnamon and cream cheese pecans (pecans, sugar, brown sugar, natural flavors, whey, cream cheese, honey, vegetable oil [peanut and/or soy], xanthan gum).",
-      allergens:
-        "Contains: Wheat, Milk, Pecans (tree nuts). May contain peanuts and soy. Lovingly baked in a home kitchen that also handles wheat, dairy, eggs, tree nuts, peanuts and soy, so cross-contact may occur. Please enjoy at your own discretion if you have food allergies.",
-    },
-    {
-      name: "Supersized Super Soft Chocolate Chip Cookies",
-      description: "King Arthur Baking — classic chocolate chip, extra soft",
-      emoji: "🍪",
-      sourceUrl:
-        "https://www.kingarthurbaking.com/recipes/supersized-super-soft-chocolate-chip-cookies-recipe",
-      sourceName: "King Arthur Baking",
-      ingredients:
-        "Wheat (bread) flour, butter, light brown sugar, whole milk, egg, vanilla extract, baking powder, baking soda, salt, and a blend of dark chocolate chips and chunks (dark chocolate, cane sugar, cocoa butter, dates, oats, sunflower lecithin, vanilla).",
-      allergens:
-        "Contains: Wheat, Milk, Egg, Oats. Lovingly baked in a home kitchen that also handles wheat, dairy, eggs, tree nuts, peanuts and soy, so cross-contact may occur. Please enjoy at your own discretion if you have food allergies.",
-    },
-    {
       name: "Chocolate Chip Shortbread",
       description: "NYT Cooking — salted chocolate chunk shortbread",
       emoji: "🍪",
@@ -102,7 +79,10 @@ export function getConfig(): BakesaleConfig {
       const hasOldSingleCookieTitle = parsed.recipes?.some(
         (recipe) => recipe.name === "Salted Chocolate Chunk Shortbread Cookies"
       );
-      if (!parsed.recipes || parsed.recipes.length < 2 || hasOldSingleCookieTitle) {
+      const hasRetiredRecipe = parsed.recipes?.some((recipe) =>
+        RETIRED_RECIPE_NAMES.includes(recipe.name)
+      );
+      if (!parsed.recipes || parsed.recipes.length === 0 || hasOldSingleCookieTitle || hasRetiredRecipe) {
         parsed.recipes = DEFAULT_CONFIG.recipes;
       }
       return parsed as BakesaleConfig;
