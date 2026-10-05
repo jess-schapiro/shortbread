@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Work+Sans:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,39 +6,35 @@
 
 @layer base {
   :root {
-    --background: 30 50% 96%;
-    --foreground: 20 40% 16%;
+    --background: 37 62% 91%;
+    --foreground: 23 45% 11%;
+    --card: 40 100% 97%;
+    --card-foreground: 23 45% 11%;
+    --popover: 40 100% 97%;
+    --popover-foreground: 23 45% 11%;
+    --primary: 22 84% 36%;
+    --primary-foreground: 40 100% 97%;
+    --secondary: 37 40% 74%;
+    --secondary-foreground: 23 45% 11%;
+    --muted: 37 50% 87%;
+    --muted-foreground: 27 31% 28%;
+    --accent: 43 79% 27%;
+    --accent-foreground: 40 100% 97%;
+    --destructive: 0 70% 40%;
+    --destructive-foreground: 40 100% 97%;
+    --border: 37 40% 74%;
+    --input: 37 40% 74%;
+    --ring: 22 84% 36%;
+    --radius: 0.75rem;
 
-    --card: 30 40% 98%;
-    --card-foreground: 20 40% 16%;
+    --sign-dark: 23 45% 11%;
+    --sign-cream: 40 100% 97%;
+    --sign-amber: 30 85% 65%;
+    --sign-gold: 43 79% 27%;
 
-    --popover: 30 40% 98%;
-    --popover-foreground: 20 40% 16%;
-
-    --primary: 16 65% 45%;
-    --primary-foreground: 30 50% 96%;
-
-    --secondary: 36 60% 70%;
-    --secondary-foreground: 20 40% 16%;
-
-    --muted: 30 30% 90%;
-    --muted-foreground: 20 15% 45%;
-
-    --accent: 350 55% 60%;
-    --accent-foreground: 30 50% 96%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 30 25% 85%;
-    --input: 30 25% 85%;
-    --ring: 16 65% 45%;
-
-    --radius: 1rem;
-
-    --cookie-brown: 20 40% 30%;
-    --cookie-cream: 38 60% 90%;
-    --cookie-chocolate: 16 50% 25%;
+    --cookie-brown: 27 31% 28%;
+    --cookie-cream: 37 62% 91%;
+    --cookie-chocolate: 23 45% 11%;
     --cookie-pink: 350 55% 60%;
     --cookie-sprinkle: 180 50% 50%;
 
@@ -100,4 +96,9 @@
   body {
     @apply bg-background text-foreground font-body;
   }
+}
+
+@layer components {
+  .sign-card { @apply bg-card text-card-foreground rounded-xl shadow-none; border: 1.5px solid hsl(var(--border)); }
+  .sign-eyebrow { @apply text-primary uppercase font-semibold text-xs sm:text-sm; letter-spacing: 0.18em; }
 }

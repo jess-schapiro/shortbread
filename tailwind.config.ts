@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Fredoka", "sans-serif"],
-        body: ["Nunito", "sans-serif"],
+        display: ["Fraunces", "Georgia", "serif"],
+        body: ["'Work Sans'", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,6 +51,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        sign: {
+          dark: "hsl(var(--sign-dark))",
+          cream: "hsl(var(--sign-cream))",
+          amber: "hsl(var(--sign-amber))",
+          gold: "hsl(var(--sign-gold))",
+        },
         cookie: {
           brown: "hsl(var(--cookie-brown))",
           cream: "hsl(var(--cookie-cream))",
@@ -70,6 +76,7 @@ export default {
         },
       },
       borderRadius: {
+        sign: "18px",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",

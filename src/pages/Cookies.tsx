@@ -15,11 +15,10 @@ const Cookies = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative overflow-hidden px-4 pt-10 pb-6 text-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 to-transparent pointer-events-none" />
-        <div className="relative z-10 max-w-lg mx-auto space-y-3">
+      <section className="px-4 pt-10 pb-6 text-center">
+        <div className="max-w-lg mx-auto space-y-3">
           <div className="text-6xl">🍪</div>
-          <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground leading-tight">
+          <h1 className="text-4xl md:text-5xl font-display font-black text-foreground leading-[0.95] tracking-tight">
             About the <span className="text-primary">Cookies</span>
           </h1>
           <p className="text-muted-foreground font-body">
@@ -32,13 +31,13 @@ const Cookies = () => {
         {config.recipes.map((recipe, i) => (
           <Card
             key={i}
-            className="border-2 border-secondary/50 shadow-lg rounded-2xl overflow-hidden"
+            className="sign-card overflow-hidden"
           >
             <CardContent className="p-6 space-y-4">
               <div className="flex items-start gap-3">
                 <div className="text-4xl flex-shrink-0">{recipe.emoji || "🍪"}</div>
                 <div className="space-y-1">
-                  <h2 className="text-xl font-display font-bold text-foreground leading-tight">
+                  <h2 className="text-xl font-display font-semibold text-primary leading-tight">
                     {recipe.name}
                   </h2>
                   {recipe.description && (
@@ -64,9 +63,9 @@ const Cookies = () => {
               )}
 
               {recipe.allergens && (
-                <div className="space-y-2 rounded-xl bg-accent/10 border border-accent/30 p-4">
+                <div className="space-y-2 rounded-xl bg-background border-[1.5px] border-border p-4">
                   <div className="flex items-center gap-2">
-                    <AlertCircle className="h-4 w-4 text-accent" />
+                    <AlertCircle className="h-4 w-4 text-primary" />
                     <h3 className="font-display font-semibold text-foreground">
                       Allergen Info
                     </h3>
@@ -96,7 +95,7 @@ const Cookies = () => {
           <Link to="/">
             <Button
               variant="outline"
-              className="rounded-xl font-display border-2 border-secondary"
+              className="rounded-xl font-display font-semibold border-[1.5px] border-border bg-card shadow-none"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to the bake sale
