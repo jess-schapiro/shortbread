@@ -67,7 +67,7 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
   bakerName: "Jess",
   beneficiary: {
     name: "Big Brothers Big Sisters of Metropolitan Chicago",
-    aboutUrl: "https://bbbschgo.org/?campaign=467476",
+    aboutUrl: "https://bbbschgo.org/about/",
     description:
       "helps children realize their potential and build their futures by nurturing kids, strengthening communities, and matching Littles with mentors who believe in them.",
   },
