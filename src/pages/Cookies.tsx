@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, ExternalLink, Cookie, AlertCircle } from "lucide-react";
+import { ArrowLeft, Cookie, AlertCircle } from "lucide-react";
 import { getConfig } from "@/lib/bakesale-config";
 import { useEffect, useState } from "react";
 import type { BakesaleConfig } from "@/types/bakesale";
