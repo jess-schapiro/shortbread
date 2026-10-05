@@ -9,10 +9,10 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
   recipes: [
     {
       name: "Chocolate Chip Shortbread",
-      description: "NYT Cooking — salted chocolate chunk shortbread",
+      description: "Buttery, crisp, with chocolate chunks.",
       emoji: "🍪",
-      sourceUrl: "https://cooking.nytimes.com/recipes/1019152-salted-chocolate-chunk-shortbread-cookies",
-      sourceName: "NYT Cooking",
+      sourceUrl: "",
+      sourceName: "",
       ingredients:
         "Wheat flour, salted butter, semi-sweet chocolate, sugar, light brown sugar, egg, turbinado sugar, vanilla extract.",
       allergens:
@@ -20,10 +20,10 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
     },
     {
       name: "Maple Walnut Biscotti",
-      description: "King Arthur Baking — crunchy maple walnut biscotti, extra maple flavor",
+      description: "Twice-baked and crunchy. Made for dunking.",
       emoji: "☕",
-      sourceUrl: "https://www.kingarthurbaking.com/recipes/maple-walnut-biscotti-recipe",
-      sourceName: "King Arthur Baking",
+      sourceUrl: "",
+      sourceName: "",
       ingredients:
         "Wheat flour, walnuts, eggs, brown sugar, sugar, maple syrup, butter, baking powder, salt, maple extract.",
       allergens:
@@ -31,10 +31,10 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
     },
     {
       name: "Pumpkin Spice Puppy Chow",
-      description: "Sally's Baking Addiction — pumpkin spice snack mix",
+      description: "Sweet, snackable, and very hard to stop at one handful.",
       emoji: "🎃",
-      sourceUrl: "https://sallysbakingaddiction.com/pumpkin-spice-puppy-chow/",
-      sourceName: "Sally's Baking Addiction",
+      sourceUrl: "",
+      sourceName: "",
       ingredients:
         "Chex cereal, white chocolate chips, powdered sugar, cinnamon, nutmeg, cloves, allspice.",
       allergens:
@@ -85,7 +85,18 @@ export function getConfig(): BakesaleConfig {
       const hasRetiredRecipe = parsed.recipes?.some((recipe) =>
         RETIRED_RECIPE_NAMES.includes(recipe.name)
       );
-      if (!parsed.recipes || parsed.recipes.length === 0 || hasOldSingleCookieTitle || hasRetiredRecipe) {
+      // Old saved configs carried source-credit descriptions like "NYT Cooking — ...";
+      // reset just the recipe list so those credits disappear while other settings stay.
+      const hasSourceDescription = parsed.recipes?.some((recipe) =>
+        /NYT Cooking|King Arthur|Sally's|Alison Roman/.test(recipe.description ?? "")
+      );
+      if (
+        !parsed.recipes ||
+        parsed.recipes.length === 0 ||
+        hasOldSingleCookieTitle ||
+        hasRetiredRecipe ||
+        hasSourceDescription
+      ) {
         parsed.recipes = DEFAULT_CONFIG.recipes;
       }
       return parsed as BakesaleConfig;
