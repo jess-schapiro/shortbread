@@ -22,7 +22,7 @@ const Cookies = () => {
             About the <span className="text-primary">Cookies</span>
           </h1>
           <p className="text-muted-foreground font-body">
-            Ingredients, allergens, and recipe credits
+            Ingredients and allergens
           </p>
         </div>
       </section>
@@ -76,17 +76,6 @@ const Cookies = () => {
                 </div>
               )}
 
-              {recipe.sourceUrl && (
-                <a
-                  href={recipe.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-sm font-body text-primary hover:text-primary/80 underline underline-offset-2"
-                >
-                  Recipe from {recipe.sourceName || "source"}
-                  <ExternalLink className="h-3 w-3" />
-                </a>
-              )}
             </CardContent>
           </Card>
         ))}
