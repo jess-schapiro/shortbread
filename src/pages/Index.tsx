@@ -90,9 +90,9 @@ const Index = () => {
         <div className="w-full max-w-sm text-center space-y-6">
           <div className="text-6xl animate-bounce-soft">{config.recipes[0]?.emoji || "🍪"}</div>
           <h1 className="text-3xl font-display font-bold text-foreground">
-            Grab a Cookie,
+            Baked with Love,
             <br />
-            Give if You Wish
+            for a Good Cause
           </h1>
           <p className="text-muted-foreground font-body">Enter the passcode to continue</p>
           <div className="space-y-3">
@@ -135,9 +135,9 @@ const Index = () => {
         <div className="relative z-10 max-w-lg mx-auto space-y-4">
           <div className="text-7xl">{config.recipes[0]?.emoji || "🍪"}</div>
           <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground leading-tight">
-            Grab a Cookie,
+            Baked with Love,
             <br />
-            <span className="text-primary">Give if You Wish</span>
+            <span className="text-primary">for a Good Cause</span>
           </h1>
           <div className="space-y-1 text-lg text-muted-foreground font-body">
             {config.recipes.map((recipe, i) => (
@@ -222,7 +222,7 @@ const Index = () => {
           className="h-14 px-10 text-xl font-display rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all hover:scale-105"
         >
           <Heart className="h-5 w-5 mr-2" />
-          Donate
+          Pay or Donate
         </Button>
         <p className="text-sm text-muted-foreground mt-3 font-body">
           100% goes to {config.beneficiary.name}
@@ -242,7 +242,7 @@ const Index = () => {
         <DialogContent className="rounded-2xl max-w-sm mx-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl font-display text-center">
-              Choose How to Give 💛
+              Choose How to Pay 💛
             </DialogTitle>
             <DialogDescription className="text-center font-body">
               Every bit helps support {config.beneficiary.name}
