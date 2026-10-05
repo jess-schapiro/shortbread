@@ -15,12 +15,12 @@ import { getConfig } from "@/lib/bakesale-config";
 import type { BakesaleConfig, DonationType } from "@/types/bakesale";
 
 const DONATION_STYLE: Record<DonationType, { border: string; bg: string; hover: string }> = {
-  classy: { border: "border-primary", bg: "bg-cookie-chocolate/80", hover: "hover:bg-cookie-chocolate" },
-  venmo: { border: "border-secondary", bg: "bg-cookie-brown/80", hover: "hover:bg-cookie-brown" },
-  paypal: { border: "border-primary", bg: "bg-primary/20", hover: "hover:bg-primary/30" },
-  zelle: { border: "border-secondary", bg: "bg-secondary/40", hover: "hover:bg-secondary/60" },
-  cashapp: { border: "border-secondary", bg: "bg-cookie-brown/80", hover: "hover:bg-cookie-brown" },
-  other: { border: "border-secondary", bg: "bg-muted", hover: "hover:bg-muted/80" },
+  classy: { border: "border-l-4 border-l-primary", bg: "bg-card", hover: "hover:bg-muted" },
+  venmo: { border: "border-l-4 border-l-foreground", bg: "bg-card", hover: "hover:bg-muted" },
+  paypal: { border: "border-l-4 border-l-primary", bg: "bg-card", hover: "hover:bg-muted" },
+  zelle: { border: "border-l-4 border-l-accent", bg: "bg-card", hover: "hover:bg-muted" },
+  cashapp: { border: "border-l-4 border-l-foreground", bg: "bg-card", hover: "hover:bg-muted" },
+  other: { border: "border-l-4 border-l-accent", bg: "bg-card", hover: "hover:bg-muted" },
 };
 
 const DONATION_EMOJI: Record<DonationType, string> = {
@@ -88,11 +88,12 @@ const Index = () => {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background p-4">
         <div className="w-full max-w-sm text-center space-y-6">
-          <div className="text-6xl animate-bounce-soft">{config.recipes[0]?.emoji || "🍪"}</div>
-          <h1 className="text-3xl font-display font-bold text-foreground">
+          <div className="text-6xl">{config.recipes[0]?.emoji || "🍪"}</div>
+          <p className="sign-eyebrow">Homemade, fresh baked</p>
+          <h1 className="text-4xl font-display font-black text-foreground leading-[0.95]">
             Baked with Love,
             <br />
-            for a Good Cause
+            <span className="text-primary">for a Good Cause</span>
           </h1>
           <p className="text-muted-foreground font-body">Enter the passcode to continue</p>
           <div className="space-y-3">
@@ -110,14 +111,14 @@ const Index = () => {
                   handleUnlock();
                 }
               }}
-              className="text-center text-lg font-display rounded-xl border-2 border-secondary focus:border-primary h-12"
+              className="text-center text-lg font-body rounded-xl border-[1.5px] border-border bg-card focus-visible:ring-primary h-12"
             />
             {error && (
-              <p className="text-accent text-sm font-body">Hmm, that's not it. Try again! 🤔</p>
+              <p className="text-primary text-sm font-body">Hmm, that's not it. Try again! 🤔</p>
             )}
             <Button
               onClick={handleUnlock}
-              className="w-full h-12 text-lg font-display rounded-xl bg-primary text-primary-foreground hover:bg-primary/90"
+              className="w-full h-12 text-lg font-display font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90"
             >
               Unlock 🔓
             </Button>
@@ -130,22 +131,28 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative overflow-hidden px-4 pt-12 pb-8 text-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 to-transparent pointer-events-none" />
-        <div className="relative z-10 max-w-lg mx-auto space-y-4">
+      <section className="px-4 pt-12 pb-8 text-center">
+        <div className="max-w-lg mx-auto space-y-5">
           <div className="text-7xl">{config.recipes[0]?.emoji || "🍪"}</div>
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground leading-tight">
+          <p className="sign-eyebrow">Homemade, fresh baked</p>
+          <h1 className="text-5xl md:text-6xl font-display font-black text-foreground leading-[0.95] tracking-tight">
             Baked with Love,
             <br />
             <span className="text-primary">for a Good Cause</span>
           </h1>
-          <div className="space-y-1 text-lg text-muted-foreground font-body">
+          <div className="flex items-center justify-center gap-4 rounded-sign bg-sign-dark px-6 py-5 text-left">
+            <span className="font-display font-black text-6xl leading-none text-sign-amber">$5</span>
+            <span className="font-display font-semibold text-2xl leading-tight text-sign-cream">
+              a bag. Any flavor.
+            </span>
+          </div>
+          <div className="space-y-2 text-lg text-muted-foreground font-body pt-2">
             {config.recipes.map((recipe, i) => (
               <div key={i}>
-                <span className="font-semibold text-foreground">{recipe.name}</span>
+                <span className="font-display font-semibold text-foreground">{recipe.name}</span>
                 <span className="text-sm block">{recipe.description}</span>
                 {i < config.recipes.length - 1 && (
-                  <span className="text-xs text-muted-foreground">&</span>
+                  <span className="text-xs text-accent">&</span>
                 )}
               </div>
             ))}
@@ -155,11 +162,11 @@ const Index = () => {
 
       {/* Personal Message */}
       <section className="px-4 py-6 max-w-lg mx-auto">
-        <Card className="border-2 border-secondary/50 shadow-lg rounded-2xl overflow-hidden">
+        <Card className="sign-card overflow-hidden">
           <CardContent className="p-6 space-y-4">
             <div className="flex items-center gap-2">
-              <Heart className="h-5 w-5 text-accent" />
-              <h2 className="text-xl font-display font-bold text-foreground">
+              <Heart className="h-5 w-5 text-primary" />
+              <h2 className="text-xl font-display font-semibold text-primary">
                 A Note from {config.bakerName}
               </h2>
             </div>
@@ -172,11 +179,11 @@ const Index = () => {
 
       {/* About the Cause */}
       <section className="px-4 py-6 max-w-lg mx-auto">
-        <Card className="border-2 border-primary/20 shadow-lg rounded-2xl overflow-hidden bg-primary/5">
+        <Card className="sign-card overflow-hidden">
           <CardContent className="p-6 space-y-4">
             <div className="flex items-center gap-2">
               <Users className="h-5 w-5 text-primary" />
-              <h2 className="text-xl font-display font-bold text-foreground">About the Cause</h2>
+              <h2 className="text-xl font-display font-semibold text-primary">About the Cause</h2>
             </div>
             <div className="space-y-3 text-foreground/80 font-body leading-relaxed">
               <p>
@@ -199,12 +206,12 @@ const Index = () => {
                 ].map((item) => (
                   <div
                     key={item.stat}
-                    className="text-center p-3 bg-card rounded-xl border border-border"
+                    className="text-center p-3 bg-background rounded-xl border-[1.5px] border-border"
                   >
-                    <div className="text-2xl font-display font-bold text-primary mb-1">
+                    <div className="text-2xl font-display font-black text-primary mb-1">
                       {item.stat}
                     </div>
-                    <div className="text-[10px] leading-tight font-body text-muted-foreground">
+                    <div className="text-[11px] leading-tight font-body text-muted-foreground">
                       {item.label}
                     </div>
                   </div>
@@ -219,7 +226,7 @@ const Index = () => {
       <section className="px-4 py-8 max-w-lg mx-auto text-center">
         <Button
           onClick={() => setDonateOpen(true)}
-          className="h-14 px-10 text-xl font-display rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all hover:scale-105"
+          className="h-14 px-10 text-xl font-display font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-none transition-colors"
         >
           <Heart className="h-5 w-5 mr-2" />
           Pay or Donate
@@ -239,9 +246,9 @@ const Index = () => {
 
       {/* Donate Modal */}
       <Dialog open={donateOpen} onOpenChange={setDonateOpen}>
-        <DialogContent className="rounded-2xl max-w-sm mx-auto">
+        <DialogContent className="rounded-xl max-w-sm mx-auto bg-background border-[1.5px] border-border shadow-none">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-display text-center">
+            <DialogTitle className="text-2xl font-display font-semibold text-center text-foreground">
               Choose How to Pay 💛
             </DialogTitle>
             <DialogDescription className="text-center font-body">
@@ -260,14 +267,14 @@ const Index = () => {
                   className="block"
                 >
                   <div
-                    className={`w-full p-4 rounded-xl border-2 ${style.border} ${style.bg} ${style.hover} transition-all text-left flex items-center gap-3`}
+                    className={`w-full p-4 rounded-xl border-[1.5px] border-border ${style.border} ${style.bg} ${style.hover} transition-all text-left flex items-center gap-3`}
                   >
                     <div className="text-3xl flex-shrink-0">{DONATION_EMOJI[opt.type]}</div>
                     <div>
-                      <div className="font-display text-lg font-semibold text-primary-foreground">
+                      <div className="font-display text-lg font-semibold text-foreground">
                         {opt.label}
                       </div>
-                      <p className="text-sm text-primary-foreground/70 font-body mt-0.5">
+                      <p className="text-sm text-muted-foreground font-body mt-0.5">
                         {opt.subtitle}
                       </p>
                     </div>
