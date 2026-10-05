@@ -83,7 +83,7 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
       id: "1",
       type: "classy",
       label: "Donate to BBBSChi",
-      url: "https://bbbschgo.org/?campaign=467476",
+      url: "https://donate.bbbschgo.org/fundraiser/7486540",
       subtitle: "Tax-deductible, goes straight to BBBS",
     },
   ],
