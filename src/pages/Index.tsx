@@ -217,7 +217,7 @@ const Index = () => {
                 {[
                   { stat: "80%", label: "of Littles demonstrated ability to regulate emotions" },
                   { stat: "90%", label: "of Littles stayed on track or improved relationships with peers" },
-                  { stat: "97%", label: "of senior Littles graduate from high school with a plan for their future" },
+                  { stat: "95%", label: "of senior Littles go on to graduate from high school with a plan for their future" },
                 ].map((item) => (
                   <div
                     key={item.stat}
