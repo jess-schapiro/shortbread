@@ -1,49 +1,51 @@
 import type { BakesaleConfig } from "@/types/bakesale";
+import { KITCHEN_DISCLAIMER } from "@/lib/event-details";
 
 const STORAGE_KEY = "bakesale-config";
 
 // Recipes that no longer exist; saved configs still referencing them get reset to defaults.
-const RETIRED_RECIPE_NAMES = ["Pecan Shortbread Cookies", "Supersized Super Soft Chocolate Chip Cookies"];
+const RETIRED_RECIPE_NAMES = ["Pecan Shortbread Cookies", "Supersized Super Soft Chocolate Chip Cookies", "Chocolate Chip Shortbread", "Maple Walnut Biscotti", "Pumpkin Spice Puppy Chow"];
 
 export const DEFAULT_CONFIG: BakesaleConfig = {
   recipes: [
     {
-      name: "Chocolate Chip Shortbread",
-      description: "Buttery, crisp, with chocolate chunks.",
-      emoji: "🍪",
+      name: "Lemon Ricotta Cookies",
+      description: "Soft, cakey and lemony, with a slime green glaze and sprinkles.",
+      emoji: "🍋",
       sourceUrl: "",
       sourceName: "",
       ingredients:
-        "Wheat flour, salted butter, semi-sweet chocolate, sugar, light brown sugar, egg, turbinado sugar, vanilla extract.",
+        "Wheat flour, ricotta cheese, butter, sugar, eggs, lemon zest and juice, baking powder, vanilla, powdered sugar, food coloring, sprinkles.",
       allergens:
-        "Contains: Wheat, Milk, Egg, Soy. May contain nuts. Lovingly baked in a home kitchen that also handles wheat, dairy, eggs, tree nuts, peanuts and soy, so cross-contact may occur. Please enjoy at your own discretion if you have food allergies.",
+        `Contains: Wheat, Milk, Egg. ${KITCHEN_DISCLAIMER}`,
     },
     {
-      name: "Maple Walnut Biscotti",
-      description: "Twice-baked and crunchy. Made for dunking.",
-      emoji: "☕",
+      name: "Millionaire's Shortbread",
+      description: "Buttery shortbread, gooey caramel, dark chocolate ganache and Halloween sprinkles.",
+      emoji: "🍫",
       sourceUrl: "",
       sourceName: "",
       ingredients:
-        "Wheat flour, walnuts, eggs, brown sugar, sugar, maple syrup, butter, baking powder, salt, maple extract.",
+        "Wheat flour, butter, sugar, brown sugar, sweetened condensed milk, heavy cream, dark chocolate, vanilla, salt, sprinkles.",
       allergens:
-        "Contains: Wheat, Milk, Egg, Tree nuts (walnuts). Lovingly baked in a home kitchen that also handles wheat, dairy, eggs, tree nuts, peanuts and soy, so cross-contact may occur. Please enjoy at your own discretion if you have food allergies.",
+        `Contains: Wheat, Milk, Egg, Soy. ${KITCHEN_DISCLAIMER}`,
     },
     {
-      name: "Pumpkin Spice Puppy Chow",
-      description: "Sweet, snackable, and very hard to stop at one handful.",
+      name: "Cookie Butter Puppy Chow Mix",
+      description: "Cookie butter puppy chow tossed with M&M's and pumpkin spice yogurt pretzels.",
       emoji: "🎃",
       sourceUrl: "",
       sourceName: "",
       ingredients:
-        "Chex cereal, white chocolate chips, powdered sugar, cinnamon, nutmeg, cloves, allspice.",
+        "Chex cereal, cookie butter, white chocolate or chocolate chips, powdered sugar, M&M's, pumpkin spice yogurt covered pretzels.",
+      note: "Candy and pretzel labels being double-checked for nut warnings.",
       allergens:
-        "Contains: Milk, Soy. May contain wheat, nuts. Lovingly baked in a home kitchen that also handles wheat, dairy, eggs, tree nuts, peanuts and soy, so cross-contact may occur. Please enjoy at your own discretion if you have food allergies.",
+        `Contains: Wheat, Milk, Soy. ${KITCHEN_DISCLAIMER}`,
     },
   ],
   passcode: "MNPLS2026",
   personalMessage:
-    "Hey! 👋 Thanks for stopping by the fall bake sale.\n\nEverything is **$5 a bag**: chocolate chip shortbread, maple walnut biscotti, and pumpkin spice puppy chow, all baked in my home kitchen.\n\nEvery dollar goes to **Big Brothers Big Sisters of Metropolitan Chicago**, helping get more Littles off the waitlist and into meaningful mentorships. 💛",
+    "Hey! 👻 Welcome to my Halloween party treat table on Saturday, October 31!\n\n**Take what you like. Nothing is required.** Enjoy some homemade treats, and give if you wish. The suggested donation is **$5**, but any amount (or none at all) is welcome.\n\nEvery dollar goes to **Big Brothers Big Sisters of Metropolitan Chicago**, helping get more Littles off the waitlist and into meaningful mentorships. Thanks for sharing a little Halloween kindness! 🎃",
   bakerName: "Jess",
   beneficiary: {
     name: "Big Brothers Big Sisters of Metropolitan Chicago",
@@ -57,7 +59,7 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
       type: "venmo",
       label: "Venmo @Jess-Schapiro",
       url: "https://venmo.com/u/Jess-Schapiro",
-      subtitle: "Quickest way to pay. Scan or tap and you're done.",
+      subtitle: "Quickest way to give. Scan or tap and you're done.",
     },
     {
       id: "1",
@@ -111,6 +113,15 @@ export function getConfig(): BakesaleConfig {
           subtitle: OLD_SUBTITLES[opt.subtitle ?? ""] ?? opt.subtitle,
         }));
       }
+      if (/\$5\s+a\s+bag|fall bake sale/i.test(parsed.personalMessage ?? "")) {
+        parsed.personalMessage = DEFAULT_CONFIG.personalMessage;
+      }
+      parsed.donationOptions = parsed.donationOptions?.map((opt) => ({
+        ...opt,
+        subtitle: opt.subtitle === "Quickest way to pay. Scan or tap and you're done."
+          ? "Quickest way to give. Scan or tap and you're done."
+          : opt.subtitle,
+      }));
       return parsed as BakesaleConfig;
     }
   } catch {

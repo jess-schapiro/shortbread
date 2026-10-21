@@ -23,6 +23,7 @@ export interface Recipe {
   sourceName?: string;
   ingredients?: string;
   allergens?: string;
+  note?: string;
 }
 
 export interface BakesaleConfig {
