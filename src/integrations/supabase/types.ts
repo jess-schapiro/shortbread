@@ -14,13 +14,24 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      volunteer_clicks: {
+        Row: {
+          clicked_at: string
+        }
+        Insert: {
+          clicked_at?: string
+        }
+        Update: {
+          clicked_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      volunteer_click_stats: { Args: never; Returns: Json }
     }
     Enums: {
       [_ in never]: never

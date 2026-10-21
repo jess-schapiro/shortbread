@@ -5,6 +5,7 @@ import { ArrowLeft, Cookie, AlertCircle } from "lucide-react";
 import { getConfig } from "@/lib/bakesale-config";
 import { useEffect, useState } from "react";
 import type { BakesaleConfig } from "@/types/bakesale";
+import { EventFooter } from "@/components/EventFooter";
 
 const Cookies = () => {
   const [config, setConfig] = useState<BakesaleConfig>(getConfig);
@@ -17,9 +18,9 @@ const Cookies = () => {
     <div className="min-h-screen bg-background">
       <section className="px-4 pt-10 pb-6 text-center">
         <div className="max-w-lg mx-auto space-y-3">
-          <div className="text-6xl">🍪</div>
+          <div className="text-6xl" aria-hidden="true">🎃</div>
           <h1 className="text-4xl md:text-5xl font-display font-black text-foreground leading-[0.95] tracking-tight">
-            About the <span className="text-primary">Cookies</span>
+            About the <span className="text-primary">Treats</span>
           </h1>
           <p className="text-muted-foreground font-body">
             Ingredients and allergens
@@ -75,6 +76,7 @@ const Cookies = () => {
                   </p>
                 </div>
               )}
+              {recipe.note && <p className="text-sm text-accent font-body">{recipe.note}</p>}
 
             </CardContent>
           </Card>
@@ -87,15 +89,13 @@ const Cookies = () => {
               className="rounded-xl font-display font-semibold border-[1.5px] border-border bg-card shadow-none"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to the bake sale
+              Back to the treat table
             </Button>
           </Link>
         </div>
       </section>
 
-      <footer className="text-center py-8 text-sm text-muted-foreground font-body">
-        <p>Made with 🧈 and ❤️ by {config.bakerName}</p>
-      </footer>
+      <EventFooter bakerName={config.bakerName} />
     </div>
   );
 };

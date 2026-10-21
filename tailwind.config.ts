@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Fraunces", "Georgia", "serif"],
+        display: ["Creepster", "Georgia", "serif"],
         body: ["'Work Sans'", "system-ui", "sans-serif"],
       },
       colors: {

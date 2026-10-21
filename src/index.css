@@ -1,90 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Work+Sans:wght@400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 37 62% 91%;
-    --foreground: 23 45% 11%;
-    --card: 40 100% 97%;
-    --card-foreground: 23 45% 11%;
-    --popover: 40 100% 97%;
-    --popover-foreground: 23 45% 11%;
-    --primary: 22 84% 36%;
-    --primary-foreground: 40 100% 97%;
-    --secondary: 37 40% 74%;
-    --secondary-foreground: 23 45% 11%;
-    --muted: 37 50% 87%;
-    --muted-foreground: 27 31% 28%;
-    --accent: 43 79% 27%;
-    --accent-foreground: 40 100% 97%;
-    --destructive: 0 70% 40%;
-    --destructive-foreground: 40 100% 97%;
-    --border: 37 40% 74%;
-    --input: 37 40% 74%;
-    --ring: 22 84% 36%;
+  :root, .dark {
+    --background: 240 7% 8%;
+    --foreground: 42 70% 94%;
+    --card: 240 6% 13%;
+    --card-foreground: 42 70% 94%;
+    --popover: 240 6% 13%;
+    --popover-foreground: 42 70% 94%;
+    --primary: 25 100% 63%;
+    --primary-foreground: 240 7% 8%;
+    --secondary: 240 5% 22%;
+    --secondary-foreground: 42 70% 94%;
+    --muted: 240 5% 18%;
+    --muted-foreground: 42 15% 76%;
+    --accent: 85 85% 65%;
+    --accent-foreground: 240 7% 8%;
+    --destructive: 0 90% 72%;
+    --destructive-foreground: 240 7% 8%;
+    --border: 240 5% 32%;
+    --input: 240 5% 32%;
+    --ring: 85 85% 65%;
     --radius: 0.75rem;
-
-    --sign-dark: 23 45% 11%;
-    --sign-cream: 40 100% 97%;
-    --sign-amber: 30 85% 65%;
-    --sign-gold: 43 79% 27%;
-
-    --cookie-brown: 27 31% 28%;
-    --cookie-cream: 37 62% 91%;
-    --cookie-chocolate: 23 45% 11%;
-    --cookie-pink: 350 55% 60%;
-    --cookie-sprinkle: 180 50% 50%;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 20 30% 10%;
-    --foreground: 30 50% 96%;
-
-    --card: 20 30% 14%;
-    --card-foreground: 30 50% 96%;
-
-    --popover: 20 30% 14%;
-    --popover-foreground: 30 50% 96%;
-
-    --primary: 16 65% 50%;
-    --primary-foreground: 20 30% 10%;
-
-    --secondary: 36 40% 30%;
-    --secondary-foreground: 30 50% 96%;
-
-    --muted: 20 20% 20%;
-    --muted-foreground: 30 20% 60%;
-
-    --accent: 350 55% 55%;
-    --accent-foreground: 30 50% 96%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 20 20% 22%;
-    --input: 20 20% 22%;
-    --ring: 16 65% 50%;
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sign-dark: 240 7% 8%;
+    --sign-cream: 42 70% 94%;
+    --sign-amber: 25 100% 63%;
+    --sign-gold: 85 85% 65%;
+    --cookie-brown: 42 15% 76%;
+    --cookie-cream: 42 70% 94%;
+    --cookie-chocolate: 240 7% 8%;
+    --cookie-pink: 0 90% 72%;
+    --cookie-sprinkle: 85 85% 65%;
+    --sidebar-background: 240 7% 8%;
+    --sidebar-foreground: 42 70% 94%;
+    --sidebar-primary: 25 100% 63%;
+    --sidebar-primary-foreground: 240 7% 8%;
+    --sidebar-accent: 240 5% 18%;
+    --sidebar-accent-foreground: 42 70% 94%;
+    --sidebar-border: 240 5% 32%;
+    --sidebar-ring: 85 85% 65%;
   }
 }
 
@@ -100,5 +56,9 @@
 
 @layer components {
   .sign-card { @apply bg-card text-card-foreground rounded-xl shadow-none; border: 1.5px solid hsl(var(--border)); }
-  .sign-eyebrow { @apply text-primary uppercase font-semibold text-xs sm:text-sm; letter-spacing: 0.18em; }
+  .sign-eyebrow { @apply text-primary uppercase font-semibold text-xs sm:text-sm; letter-spacing: 0; }
+}
+
+@layer base {
+  h1, h2, h3, .font-display { font-weight: 400; letter-spacing: 0; }
 }
