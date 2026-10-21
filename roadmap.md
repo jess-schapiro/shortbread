@@ -14,5 +14,5 @@
 # Puppy chow label info
 - [x] Update allergens with peanut may-contain, drop double-check note, rename candies, add test
 
-# Hidden logo placeholder
+# Thrivent sponsorship (plain text, no logo)
 - [x] Remove the Thrivent logo slot entirely; sponsorship is plain text only, no logo anywhere
