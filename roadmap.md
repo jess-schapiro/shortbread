@@ -7,3 +7,6 @@
 # Passcode update
 - [x] Update default, saved retired passcodes, admin defaults and documentation/memory
 - [x] Verify passcode migration, case-insensitive unlock, QR popup and admin share link
+
+# Sponsor line
+- [x] Remove ® everywhere, keep exact sponsor wording, update tests and memory
