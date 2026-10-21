@@ -16,3 +16,6 @@
 
 # Thrivent sponsorship (plain text, no logo)
 - [x] Remove the Thrivent logo slot entirely; sponsorship is plain text only, no logo anywhere
+
+# Impact stats
+- [x] Third stat to 95% with the "go on to graduate" wording, per bbbschgo.org/about
