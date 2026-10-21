@@ -249,7 +249,6 @@ const Index = () => {
         <Button onClick={() => openVolunteerForm()} className="w-full h-auto min-h-12 whitespace-normal bg-accent text-accent-foreground hover:bg-accent/90 font-body font-semibold rounded-xl px-4 py-3">
           Learn about becoming a Big <span aria-hidden="true">↗</span>
         </Button>
-        <p className="text-sm text-muted-foreground font-body">On the form, tell them Jess Schapiro sent you.</p>
       </section>
 
       <section className="px-4 py-8 max-w-lg mx-auto text-center">
