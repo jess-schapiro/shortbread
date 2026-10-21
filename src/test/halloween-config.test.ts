@@ -28,10 +28,31 @@ describe("Halloween menu migration", () => {
     expect(result.personalMessage).toBe(DEFAULT_CONFIG.personalMessage);
     expect(result.donationOptions[0].subtitle).toBe(DEFAULT_CONFIG.donationOptions[0].subtitle);
     expect(result.donationOptions[0].url).toBe("https://venmo.com/u/Jess-Schapiro");
-    expect(result.passcode).toBe("MNPLS2026");
+    expect(result.passcode).toBe("BOO2026");
   });
   it("preserves campaign destination and QR passcode", () => {
     expect(DEFAULT_CONFIG.donationOptions.find(o => o.type === "classy")?.url).toBe("https://donate.bbbschgo.org/fundraiser/7486540");
-    expect(generateShareLink("https://bakesale.heyjess.xyz/", DEFAULT_CONFIG.passcode)).toBe("https://bakesale.heyjess.xyz/?code=MNPLS2026");
+    expect(generateShareLink("https://bakesale.heyjess.xyz/", DEFAULT_CONFIG.passcode)).toBe("https://bakesale.heyjess.xyz/?code=BOO2026");
+  });
+});
+
+describe("Halloween passcode migration", () => {
+  it("defaults to BOO2026 for new visitors", () => {
+    expect(getConfig().passcode).toBe("BOO2026");
+  });
+
+  for (const passcode of ["MNPLS2026", "mnpls2026", "MnPlS2026"]) {
+    it(`updates and persists the retired code ${passcode} without changing other settings`, () => {
+      const saved = { ...DEFAULT_CONFIG, passcode, bakerName: "Custom baker", personalMessage: "My own message" };
+      saveConfig(saved);
+      expect(getConfig()).toEqual({ ...saved, passcode: "BOO2026" });
+      expect(JSON.parse(localStorage.getItem("bakesale-config") ?? "{}")).toEqual({ ...saved, passcode: "BOO2026" });
+    });
+  }
+
+  it("preserves custom passcodes and their share links", () => {
+    saveConfig({ ...DEFAULT_CONFIG, passcode: "MyCustomCode" });
+    expect(getConfig().passcode).toBe("MyCustomCode");
+    expect(generateShareLink("https://bakesale.heyjess.xyz/", getConfig().passcode)).toBe("https://bakesale.heyjess.xyz/?code=MyCustomCode");
   });
 });
