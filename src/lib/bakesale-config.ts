@@ -43,7 +43,7 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
         `Contains: Wheat, Milk, Soy. ${KITCHEN_DISCLAIMER}`,
     },
   ],
-  passcode: "MNPLS2026",
+  passcode: "BOO2026",
   personalMessage:
     "Hey! 👻 Welcome to my Halloween party treat table on Saturday, October 31!\n\n**Take what you like. Nothing is required.** Enjoy some homemade treats, and give if you wish. The suggested donation is **$5**, but any amount (or none at all) is welcome.\n\nEvery dollar goes to **Big Brothers Big Sisters of Metropolitan Chicago**, helping get more Littles off the waitlist and into meaningful mentorships. Thanks for sharing a little Halloween kindness! 🎃",
   bakerName: "Jess",
@@ -122,6 +122,15 @@ export function getConfig(): BakesaleConfig {
           ? "Quickest way to give. Scan or tap and you're done."
           : opt.subtitle,
       }));
+      // Retire only the previous event code, preserving custom wizard passcodes.
+      if (parsed.passcode?.toLowerCase() === "mnpls2026") {
+        parsed.passcode = DEFAULT_CONFIG.passcode;
+        try {
+          saveConfig(parsed);
+        } catch {
+          // Use the migrated code even if browser storage is unavailable.
+        }
+      }
       return parsed as BakesaleConfig;
     }
   } catch {

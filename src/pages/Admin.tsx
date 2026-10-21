@@ -189,7 +189,7 @@ const Admin = () => {
                   <Input
                     value={config.passcode}
                     onChange={(e) => update({ passcode: e.target.value })}
-                    placeholder="e.g. appleton2026"
+                    placeholder="e.g. BOO2026"
                   />
                   <p className="text-xs text-muted-foreground">Visitors enter this to unlock the page.</p>
                 </div>

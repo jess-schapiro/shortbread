@@ -8,7 +8,7 @@
 - Record timestamp-only volunteer clicks in Lovable Cloud, and show totals and daily counts on /admin. The form always opens, even when logging fails.
 
 ## Technical details and assumptions
-- Keep MNPLS2026, case-insensitive entry, QR auto-unlock, automatic popup and existing Venmo/Classy URLs unchanged.
+- Use BOO2026 (updated October 21), keeping case-insensitive entry, QR auto-unlock, automatic popup and existing Venmo/Classy URLs unchanged.
 - Store only server-generated click timestamps. Keep raw click rows inaccessible to visitors; expose anonymous aggregate counts only. Counts are non-sensitive and publicly retrievable; the existing admin password remains a local wizard convenience, not secure Cloud authentication.
 - Daily counts use Chicago time. Application tracking stores no IP, identity or device information; Cloud’s standard infrastructure request logs are separate from the timestamp-only table.
 - Add focused tests for menu migration, preserved settings, donation framing and click success/failure behavior. Verify phone and desktop pages and a real click reading back in admin.
