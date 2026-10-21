@@ -7,13 +7,12 @@ export function EventFooter({ bakerName }: { bakerName: string }) {
         <p>Made with 🧈 and ❤️ by {bakerName}</p>
         <p className="leading-relaxed">{KITCHEN_DISCLAIMER}</p>
         <p>{SPONSOR_LINE}</p>
+        {/* Logo slot: drop the official Thrivent logo file in (e.g. src/assets/thrivent-logo.png),
+            import it here, and point THRIVENT_LOGO_SRC in src/lib/event-details.ts at it.
+            Until then nothing renders here - no placeholder text or empty box is shown to guests. */}
         {THRIVENT_LOGO_SRC ? (
           <img src={THRIVENT_LOGO_SRC} alt="Thrivent" className="mx-auto max-h-20 max-w-48 object-contain" />
-        ) : (
-          <div className="mx-auto max-w-64 border border-dashed border-border rounded-xl px-4 py-3 text-xs">
-            Official Thrivent logo placeholder
-          </div>
-        )}
+        ) : null}
         <div aria-hidden="true" className="text-2xl">🦇 👻 🎃</div>
       </div>
     </footer>
