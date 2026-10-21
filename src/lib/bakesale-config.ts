@@ -37,10 +37,9 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
       sourceUrl: "",
       sourceName: "",
       ingredients:
-        "Chex cereal, cookie butter, white chocolate or chocolate chips, powdered sugar, M&M's, pumpkin spice yogurt covered pretzels.",
-      note: "Candy and pretzel labels being double-checked for nut warnings.",
+        "Chex cereal, cookie butter, white chocolate or chocolate chips, powdered sugar, M&M's milk chocolate candies, pumpkin spice yogurt covered pretzels.",
       allergens:
-        `Contains: Wheat, Milk, Soy. ${KITCHEN_DISCLAIMER}`,
+        `Contains: Wheat, Milk, Soy. The M&M's may contain peanuts. ${KITCHEN_DISCLAIMER}`,
     },
   ],
   passcode: "BOO2026",

@@ -10,3 +10,6 @@
 
 # Sponsor line
 - [x] Remove ® everywhere, keep exact sponsor wording, update tests and memory
+
+# Puppy chow label info
+- [x] Update allergens with peanut may-contain, drop double-check note, rename candies, add test
