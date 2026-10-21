@@ -13,6 +13,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Users } from "lucide-react";
 import { getConfig } from "@/lib/bakesale-config";
 import type { BakesaleConfig, DonationType } from "@/types/bakesale";
+import { EventFooter } from "@/components/EventFooter";
+import { DONATION_SUGGESTION } from "@/lib/event-details";
+import { openVolunteerForm } from "@/lib/volunteer-tracking";
+import halloweenTreats from "@/assets/halloween-treats.png";
 
 const DONATION_STYLE: Record<DonationType, { border: string; bg: string; hover: string }> = {
   classy: { border: "border-l-4 border-l-primary", bg: "bg-card", hover: "hover:bg-muted" },
@@ -33,7 +37,7 @@ const DONATION_EMOJI: Record<DonationType, string> = {
 };
 
 const DONATION_BADGE: Record<DonationType, { text: string; className: string } | null> = {
-  venmo: { text: "Fastest", className: "bg-sign-dark text-sign-cream" },
+  venmo: { text: "Fastest", className: "bg-accent text-accent-foreground" },
   classy: { text: "Tax-deductible", className: "bg-primary text-primary-foreground" },
   paypal: null,
   zelle: null,
@@ -97,10 +101,10 @@ const Index = () => {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background p-4">
         <div className="w-full max-w-sm text-center space-y-6">
-          <div className="text-6xl">{config.recipes[0]?.emoji || "🍪"}</div>
-          <p className="sign-eyebrow">Homemade, fresh baked</p>
+          <img src={halloweenTreats} alt="" width={992} height={672} className="mx-auto w-48 h-auto" />
+          <p className="sign-eyebrow">Halloween treat table · October 31</p>
           <h1 className="text-4xl font-display font-black text-foreground leading-[0.95]">
-            Baked with Love,
+            Halloween Treats,
             <br />
             <span className="text-primary">for a Good Cause</span>
           </h1>
@@ -142,18 +146,16 @@ const Index = () => {
       {/* Hero */}
       <section className="px-4 pt-12 pb-8 text-center">
         <div className="max-w-lg mx-auto space-y-5">
-          <div className="text-7xl">{config.recipes[0]?.emoji || "🍪"}</div>
-          <p className="sign-eyebrow">Homemade, fresh baked</p>
+          <img src={halloweenTreats} alt="" width={992} height={672} className="mx-auto w-48 h-auto" />
+          <p className="sign-eyebrow">Saturday, October 31 · Homemade treats</p>
           <h1 className="text-5xl md:text-6xl font-display font-black text-foreground leading-[0.95] tracking-tight">
-            Baked with Love,
+            Halloween Treats,
             <br />
             <span className="text-primary">for a Good Cause</span>
           </h1>
-          <div className="flex items-center justify-center gap-4 rounded-sign bg-sign-dark px-6 py-5 text-left">
-            <span className="font-display font-black text-6xl leading-none text-sign-amber">$5</span>
-            <span className="font-display font-semibold text-2xl leading-tight text-sign-cream">
-              a bag. Any flavor.
-            </span>
+          <div className="rounded-sign border border-accent bg-sign-dark px-6 py-5 text-center">
+            <p className="font-body font-semibold text-lg text-sign-cream">{DONATION_SUGGESTION.split(". ")[0]}.</p>
+            <p className="font-display text-3xl text-accent mt-2">Give what you wish.</p>
           </div>
           <div className="space-y-2 text-lg text-muted-foreground font-body pt-2">
             {config.recipes.map((recipe, i) => (
@@ -232,13 +234,27 @@ const Index = () => {
       </section>
 
       {/* Donate CTA */}
+      <section className="px-4 py-6 max-w-lg mx-auto space-y-4 border-y border-border">
+        <div className="flex items-center gap-2">
+          <Users className="h-5 w-5 text-accent" />
+          <h2 className="text-3xl font-display text-accent">Become a Big</h2>
+        </div>
+        <p className="text-foreground/80 font-body leading-relaxed">
+          BBBSChi matches Littles with volunteer mentors called Bigs. Littles are waiting for someone who can show up, share a little time, and believe in them. If that sounds like you, we'd love for you to learn more.
+        </p>
+        <Button onClick={() => openVolunteerForm()} className="w-full h-auto min-h-12 whitespace-normal bg-accent text-accent-foreground hover:bg-accent/90 font-body font-semibold rounded-xl px-4 py-3">
+          Learn about becoming a Big <span aria-hidden="true">↗</span>
+        </Button>
+        <p className="text-sm text-muted-foreground font-body">On the form, tell them Jess Schapiro sent you.</p>
+      </section>
+
       <section className="px-4 py-8 max-w-lg mx-auto text-center">
         <Button
           onClick={() => setDonateOpen(true)}
           className="h-14 px-10 text-xl font-display font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-none transition-colors"
         >
           <Heart className="h-5 w-5 mr-2" />
-          Pay or Donate
+          Donate
         </Button>
         <p className="text-sm text-muted-foreground mt-3 font-body">
           100% goes to {config.beneficiary.name}
@@ -258,13 +274,13 @@ const Index = () => {
         <DialogContent className="rounded-xl max-w-sm mx-auto bg-background border-[1.5px] border-border shadow-none">
           <DialogHeader>
             <DialogTitle className="text-2xl font-display font-semibold text-center text-foreground">
-              Choose How to Pay 💛
+              Choose How to Give 🎃
             </DialogTitle>
             <DialogDescription className="text-center font-body">
               Every bit helps support {config.beneficiary.name}
             </DialogDescription>
             <p className="text-xs text-center text-muted-foreground font-body">
-              Venmo is fastest. The BBBS link is the one for a tax-deductible gift.
+               Venmo is fastest. The BBBS link is the one for a tax-deductible gift.
             </p>
           </DialogHeader>
           <div className="space-y-3 pt-2">
@@ -312,9 +328,7 @@ const Index = () => {
       </Dialog>
 
       {/* Footer */}
-      <footer className="text-center py-8 text-sm text-muted-foreground font-body">
-        <p>Made with 🧈 and ❤️ by {config.bakerName}</p>
-      </footer>
+      <EventFooter bakerName={config.bakerName} />
     </div>
   );
 };
