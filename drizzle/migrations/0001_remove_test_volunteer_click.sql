@@ -1,0 +1,1 @@
+DELETE FROM public.volunteer_clicks WHERE clicked_at = '2026-10-21 13:23:35.927233+00';

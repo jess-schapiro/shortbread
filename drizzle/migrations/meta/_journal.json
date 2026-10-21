@@ -8,6 +8,13 @@
       "when": 1792587581942,
       "tag": "0000_volunteer_click_timestamps",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792589037980,
+      "tag": "0001_remove_test_volunteer_click",
+      "breakpoints": true
     }
   ]
 }
