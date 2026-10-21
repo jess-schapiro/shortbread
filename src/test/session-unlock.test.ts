@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { isSessionUnlocked, rememberSessionUnlock } from "@/lib/session-unlock";
+import { isCodeUnlock } from "@/lib/code-unlock";
 
 describe("session unlock", () => {
   beforeEach(() => {
@@ -26,5 +27,21 @@ describe("session unlock", () => {
     vi.spyOn(Storage.prototype, "getItem").mockImplementation(() => { throw new Error("blocked"); });
     expect(() => rememberSessionUnlock("BOO2026")).not.toThrow();
     expect(isSessionUnlocked("BOO2026")).toBe(false);
+  });
+});
+
+describe("QR code unlock (?code= in the URL)", () => {
+  it("matches the passcode case-insensitively", () => {
+    expect(isCodeUnlock("BOO2026", "BOO2026")).toBe(true);
+    expect(isCodeUnlock("boo2026", "BOO2026")).toBe(true);
+  });
+
+  it("rejects a wrong code", () => {
+    expect(isCodeUnlock("nope", "BOO2026")).toBe(false);
+  });
+
+  it("is false without a code, so plain revisits never auto-open the modal", () => {
+    expect(isCodeUnlock(null, "BOO2026")).toBe(false);
+    expect(isCodeUnlock("", "BOO2026")).toBe(false);
   });
 });
