@@ -6,4 +6,4 @@
 
 # Passcode update
 - [x] Update default, saved retired passcodes, admin defaults and documentation/memory
-- [ ] Verify passcode migration, case-insensitive unlock, QR popup and admin share link
+- [x] Verify passcode migration, case-insensitive unlock, QR popup and admin share link
