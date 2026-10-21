@@ -15,6 +15,7 @@ import { Plus, Trash2, Copy, Check, ArrowLeft, ArrowRight, Save } from "lucide-r
 import type { BakesaleConfig, DonationOption, DonationType } from "@/types/bakesale";
 import { getConfig, saveConfig, generateShareLink } from "@/lib/bakesale-config";
 import { toast } from "@/hooks/use-toast";
+import { VolunteerStats } from "@/components/VolunteerStats";
 
 const ADMIN_PASSWORD = "admin";
 
@@ -124,6 +125,7 @@ const Admin = () => {
         </div>
 
         {/* Progress dots */}
+        <VolunteerStats />
         <div className="flex justify-center gap-2">
           {STEPS.map((_, i) => (
             <button
