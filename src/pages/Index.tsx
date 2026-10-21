@@ -12,6 +12,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Users } from "lucide-react";
 import { getConfig } from "@/lib/bakesale-config";
+import { isSessionUnlocked, rememberSessionUnlock } from "@/lib/session-unlock";
 import type { BakesaleConfig, DonationType } from "@/types/bakesale";
 import { EventFooter } from "@/components/EventFooter";
 import { DONATION_SUGGESTION } from "@/lib/event-details";
@@ -69,11 +70,11 @@ function renderMessage(text: string) {
 
 const Index = () => {
   const [searchParams] = useSearchParams();
-  const [unlocked, setUnlocked] = useState(false);
+  const [config, setConfig] = useState<BakesaleConfig>(getConfig);
+  const [unlocked, setUnlocked] = useState(() => isSessionUnlocked(config.passcode));
   const [passcodeInput, setPasscodeInput] = useState("");
   const [error, setError] = useState(false);
   const [donateOpen, setDonateOpen] = useState(false);
-  const [config, setConfig] = useState<BakesaleConfig>(getConfig);
 
   useEffect(() => {
     setConfig(getConfig());
@@ -82,13 +83,16 @@ const Index = () => {
   useEffect(() => {
     const code = searchParams.get("code");
     if (code && code.toLowerCase() === config.passcode.toLowerCase()) {
+      const alreadyUnlocked = isSessionUnlocked(config.passcode);
+      rememberSessionUnlock(config.passcode);
       setUnlocked(true);
-      setTimeout(() => setDonateOpen(true), 100);
+      if (!alreadyUnlocked) setTimeout(() => setDonateOpen(true), 100);
     }
   }, [searchParams, config.passcode]);
 
   const handleUnlock = () => {
     if (passcodeInput.toLowerCase() === config.passcode.toLowerCase()) {
+      rememberSessionUnlock(config.passcode);
       setUnlocked(true);
       setError(false);
       setTimeout(() => setDonateOpen(true), 100);
