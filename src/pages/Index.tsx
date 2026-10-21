@@ -13,6 +13,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Users } from "lucide-react";
 import { getConfig } from "@/lib/bakesale-config";
 import { isSessionUnlocked, rememberSessionUnlock } from "@/lib/session-unlock";
+import { isCodeUnlock } from "@/lib/code-unlock";
 import type { BakesaleConfig, DonationType } from "@/types/bakesale";
 import { EventFooter } from "@/components/EventFooter";
 import { DONATION_SUGGESTION } from "@/lib/event-details";
@@ -81,21 +82,22 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    const code = searchParams.get("code");
-    if (code && code.toLowerCase() === config.passcode.toLowerCase()) {
-      const alreadyUnlocked = isSessionUnlocked(config.passcode);
+    // QR scans carry ?code= and always open the donate modal, even when this
+    // session is already unlocked. Visits without the code never auto-open it.
+    if (isCodeUnlock(searchParams.get("code"), config.passcode)) {
       rememberSessionUnlock(config.passcode);
       setUnlocked(true);
-      if (!alreadyUnlocked) setTimeout(() => setDonateOpen(true), 100);
+      setTimeout(() => setDonateOpen(true), 100);
     }
   }, [searchParams, config.passcode]);
 
   const handleUnlock = () => {
     if (passcodeInput.toLowerCase() === config.passcode.toLowerCase()) {
+      const alreadyUnlocked = isSessionUnlocked(config.passcode);
       rememberSessionUnlock(config.passcode);
       setUnlocked(true);
       setError(false);
-      setTimeout(() => setDonateOpen(true), 100);
+      if (!alreadyUnlocked) setTimeout(() => setDonateOpen(true), 100);
     } else {
       setError(true);
     }
