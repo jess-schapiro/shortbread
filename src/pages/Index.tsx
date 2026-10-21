@@ -148,7 +148,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-[env(safe-area-inset-bottom)]">
       {/* Hero */}
       <section className="px-4 pt-12 pb-8 text-center">
         <div className="max-w-lg mx-auto space-y-5">
@@ -210,7 +210,7 @@ const Index = () => {
                   href={config.beneficiary.aboutUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors"
+                  className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors inline-flex items-center min-h-11 -my-3"
                 >
                   Learn more ↗
                 </a>
@@ -228,7 +228,7 @@ const Index = () => {
                     <div className="text-2xl font-display font-black text-primary mb-1">
                       {item.stat}
                     </div>
-                    <div className="text-[11px] leading-tight font-body text-muted-foreground">
+                    <div className="text-xs leading-tight font-body text-muted-foreground">
                       {item.label}
                     </div>
                   </div>
@@ -265,18 +265,19 @@ const Index = () => {
           100% goes to {config.beneficiary.name}
         </p>
         <div className="mt-5">
-          <Link
-            to="/cookies"
-            className="inline-flex items-center gap-1 text-sm font-body text-primary hover:text-primary/80 underline underline-offset-2"
+          <Button
+            asChild
+            variant="outline"
+            className="w-full sm:w-auto h-12 px-6 text-base font-body font-semibold rounded-xl border-[1.5px] border-primary text-primary hover:bg-primary/10 hover:text-primary"
           >
-            🍪 See ingredients & allergen info
-          </Link>
+            <Link to="/cookies">🍪 See ingredients & allergen info</Link>
+          </Button>
         </div>
       </section>
 
       {/* Donate Modal */}
       <Dialog open={donateOpen} onOpenChange={setDonateOpen}>
-        <DialogContent className="rounded-xl max-w-sm mx-auto bg-background border-[1.5px] border-border shadow-none">
+        <DialogContent className="rounded-xl w-[calc(100vw-2rem)] max-w-sm mx-auto max-h-[calc(100dvh-2rem)] overflow-y-auto bg-background border-[1.5px] border-border shadow-none">
           <DialogHeader>
             <DialogTitle className="text-2xl font-display font-semibold text-center text-foreground">
               Choose How to Give 🎃
