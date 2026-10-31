@@ -12,8 +12,12 @@ describe("Cookie Butter Puppy Chow Mix label info", () => {
     );
   });
 
-  it("lists the cookie butter's speculoos ingredients", () => {
+  it("lists the cookie butter's speculoos ingredients and the candy morsels", () => {
     expect(puppyChow.ingredients).toContain("cookie butter (speculoos cookies, canola oil, sugar, sunflower lecithin)");
+    expect(puppyChow.ingredients).toContain(
+      "white candy morsels (sugar, palm kernel oil, milk, nonfat milk, palm oil, soy lecithin, natural flavor)",
+    );
+    expect(puppyChow.ingredients).not.toContain("white chocolate or chocolate chips");
   });
 
   it("no longer carries the single candy-only peanut note", () => {
