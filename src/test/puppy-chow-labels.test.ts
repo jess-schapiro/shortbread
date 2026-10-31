@@ -5,10 +5,19 @@ import { KITCHEN_DISCLAIMER } from "@/lib/event-details";
 const puppyChow = DEFAULT_CONFIG.recipes.find((r) => r.name === "Cookie Butter Puppy Chow Mix")!;
 
 describe("Cookie Butter Puppy Chow Mix label info", () => {
-  it("states the peanut warning from the M&M's label", () => {
+  it("states the contains and may-contain warnings from the cookie butter and M&M's labels", () => {
     expect(puppyChow.allergens).toBe(
-      `Contains: Wheat, Milk, Soy. The M&M's may contain peanuts. ${KITCHEN_DISCLAIMER}`,
+      "Contains: Wheat, Milk, Soy. May contain: Peanuts, tree nuts (cashews, pistachios, walnuts, almonds, hazelnuts), sesame and egg. The cookie butter and the M&M's carry these warnings. " +
+        KITCHEN_DISCLAIMER,
     );
+  });
+
+  it("lists the cookie butter's speculoos ingredients", () => {
+    expect(puppyChow.ingredients).toContain("cookie butter (speculoos cookies, canola oil, sugar, sunflower lecithin)");
+  });
+
+  it("no longer carries the single candy-only peanut note", () => {
+    expect(puppyChow.allergens).not.toContain("The M&M's may contain peanuts");
   });
 
   it("no longer carries the double-checking note", () => {
