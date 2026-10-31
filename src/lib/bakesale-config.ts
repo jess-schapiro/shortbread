@@ -15,7 +15,7 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
       sourceUrl: "",
       sourceName: "",
       ingredients:
-        "Wheat flour, ricotta cheese, butter, sugar, eggs, lemon zest and juice, baking powder, vanilla, powdered sugar, food coloring, sprinkles.",
+        "Wheat flour, ricotta cheese, butter, sugar, eggs, lemon zest and juice, baking powder, vanilla, powdered sugar, food coloring, sprinkles (sugar, glucose, palm kernel oil, corn starch, sunflower lecithin, confectioner's glaze, artificial colors).",
       allergens:
         `Contains: Wheat, Milk, Egg. ${KITCHEN_DISCLAIMER}`,
     },
@@ -26,7 +26,7 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
       sourceUrl: "",
       sourceName: "",
       ingredients:
-        "Wheat flour, butter, sugar, brown sugar, sweetened condensed milk, heavy cream, dark chocolate, vanilla, salt, sprinkles.",
+        "Wheat flour, butter, sugar, brown sugar, sweetened condensed milk, heavy cream, dark chocolate, vanilla, salt, sprinkles (sugar, glucose, palm kernel oil, corn starch, sunflower lecithin, confectioner's glaze, artificial colors).",
       allergens:
         `Contains: Wheat, Milk, Egg, Soy. ${KITCHEN_DISCLAIMER}`,
     },
@@ -44,7 +44,7 @@ export const DEFAULT_CONFIG: BakesaleConfig = {
   ],
   passcode: "BOO2026",
   personalMessage:
-    "Hey! 👻 Welcome to my Halloween party treat table on Saturday, October 31!\n\n**Take what you like. Nothing is required.** Enjoy some homemade treats, and give if you wish. The suggested donation is **$5**, but any amount (or none at all) is welcome.\n\nEvery dollar goes to **Big Brothers Big Sisters of Metropolitan Chicago**, helping get more Littles off the waitlist and into meaningful mentorships. Thanks for sharing a little Halloween kindness! 🎃",
+    "Hey! 👻\n\n**Take what you like. Nothing is required.** Enjoy some homemade treats, and give if you wish. The suggested donation is **$5**, but any amount (or none at all) is welcome.\n\nEvery dollar goes to **Big Brothers Big Sisters of Metropolitan Chicago**, helping get more Littles off the waitlist and into meaningful mentorships. Thanks for sharing a little Halloween kindness! 🎃",
   bakerName: "Jess",
   beneficiary: {
     name: "Big Brothers Big Sisters of Metropolitan Chicago",
@@ -91,7 +91,13 @@ export function getConfig(): BakesaleConfig {
       const hasSourceDescription = parsed.recipes?.some((recipe) =>
         /NYT Cooking|King Arthur|Sally's|Alison Roman/.test(recipe.description ?? "")
       );
+      // Saved copies of the default treats with outdated ingredient or allergen text get refreshed.
+      const hasOutdatedDefaultRecipe = parsed.recipes?.some((recipe) => {
+        const current = DEFAULT_CONFIG.recipes.find((d) => d.name === recipe.name);
+        return !!current && (current.ingredients !== recipe.ingredients || current.allergens !== recipe.allergens);
+      });
       if (
+        hasOutdatedDefaultRecipe ||
         !parsed.recipes ||
         parsed.recipes.length === 0 ||
         hasOldSingleCookieTitle ||
@@ -112,7 +118,7 @@ export function getConfig(): BakesaleConfig {
           subtitle: OLD_SUBTITLES[opt.subtitle ?? ""] ?? opt.subtitle,
         }));
       }
-      if (/\$5\s+a\s+bag|fall bake sale/i.test(parsed.personalMessage ?? "")) {
+      if (/\$5\s+a\s+bag|fall bake sale|Welcome to my Halloween party treat table/i.test(parsed.personalMessage ?? "")) {
         parsed.personalMessage = DEFAULT_CONFIG.personalMessage;
       }
       parsed.donationOptions = parsed.donationOptions?.map((opt) => ({

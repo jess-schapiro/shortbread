@@ -174,6 +174,15 @@ const Index = () => {
               </div>
             ))}
           </div>
+          <div className="mt-5">
+            <Button
+              asChild
+              variant="outline"
+              className="w-full sm:w-auto h-12 px-6 text-base font-body font-semibold rounded-xl border-[1.5px] border-primary text-primary hover:bg-primary/10 hover:text-primary"
+            >
+              <Link to="/cookies">🍪 See ingredients & allergen info</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -264,15 +273,6 @@ const Index = () => {
         <p className="text-sm text-muted-foreground mt-3 font-body">
           100% goes to {config.beneficiary.name}
         </p>
-        <div className="mt-5">
-          <Button
-            asChild
-            variant="outline"
-            className="w-full sm:w-auto h-12 px-6 text-base font-body font-semibold rounded-xl border-[1.5px] border-primary text-primary hover:bg-primary/10 hover:text-primary"
-          >
-            <Link to="/cookies">🍪 See ingredients & allergen info</Link>
-          </Button>
-        </div>
       </section>
 
       {/* Donate Modal */}

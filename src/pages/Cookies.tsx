@@ -82,6 +82,10 @@ const Cookies = () => {
           </Card>
         ))}
 
+        <p className="text-xs text-center text-muted-foreground font-body">
+          Sprinkles contain confectioner's glaze (shellac) and artificial colors.
+        </p>
+
         <div className="text-center pt-2">
           <Link to="/">
             <Button
@@ -89,7 +93,7 @@ const Cookies = () => {
               className="rounded-xl font-display font-semibold border-[1.5px] border-border bg-card shadow-none"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to the treat table
+              Back to the treats
             </Button>
           </Link>
         </div>
