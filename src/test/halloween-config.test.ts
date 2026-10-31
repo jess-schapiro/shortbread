@@ -56,3 +56,17 @@ describe("Halloween passcode migration", () => {
     expect(generateShareLink("https://bakesale.heyjess.xyz/", getConfig().passcode)).toBe("https://bakesale.heyjess.xyz/?code=MyCustomCode");
   });
 });
+describe("Treat label refresh", () => {
+  it("resets saved default treats with outdated ingredients, keeping other settings", () => {
+    const saved = { ...DEFAULT_CONFIG, passcode: "custom", recipes: DEFAULT_CONFIG.recipes.map(r => ({ ...r, ingredients: "old" })) };
+    saveConfig(saved);
+    const result = getConfig();
+    expect(result.recipes).toEqual(DEFAULT_CONFIG.recipes);
+    expect(result.passcode).toBe("custom");
+  });
+  it("resets the old party welcome message", () => {
+    saveConfig({ ...DEFAULT_CONFIG, personalMessage: "Hey! Welcome to my Halloween party treat table on Saturday!" });
+    expect(getConfig().personalMessage).toBe(DEFAULT_CONFIG.personalMessage);
+    expect(DEFAULT_CONFIG.personalMessage.startsWith("Hey! 👻\n\n**Take what you like.")).toBe(true);
+  });
+});
