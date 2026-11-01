@@ -26,7 +26,7 @@ beforeEach(() => localStorage.clear());
 describe("/give page", () => {
   it("shows the thank-you copy and both donation options without a passcode or modal", () => {
     renderGive();
-    expect(screen.getByText("Thank you for coming")).toBeInTheDocument();
+    expect(screen.getByText("Thanks for munching!")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /Enjoyed the/ })).toBeInTheDocument();
     expect(screen.getByText(/Give if you wish\. Suggested gift \$5/)).toBeInTheDocument();
 
