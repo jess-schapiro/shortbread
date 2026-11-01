@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Users } from "lucide-react";
 import { getConfig } from "@/lib/bakesale-config";
