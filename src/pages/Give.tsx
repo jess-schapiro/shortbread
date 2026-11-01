@@ -82,7 +82,7 @@ const Give = () => {
       {/* Hosting thanks */}
       <section className="px-4 pt-2 pb-8 max-w-lg mx-auto text-center">
         <p className="text-sm text-muted-foreground font-body">
-          Thanks to Emily and Phoebe for hosting.
+          Thanks to Emily and Phoebe for hosting an incredible party 🎉🥳🎃👻🦇🎊✨
         </p>
       </section>
 

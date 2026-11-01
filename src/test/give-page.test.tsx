@@ -47,11 +47,12 @@ describe("/give page", () => {
     expect(screen.queryByText(/Venmo is fastest/)).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "About the Cause" })).toBeInTheDocument();
     expect(screen.getByText(/Made with 🧈 and ❤️ by/)).toBeInTheDocument();
-    expect(screen.getByText("Thanks to Emily and Phoebe for hosting.")).toBeInTheDocument();
+    const hosting = screen.getByText(/Thanks to Emily and Phoebe for hosting an incredible party/);
+    expect(hosting).toBeInTheDocument();
+    expect(hosting.textContent).toMatch(/[🎉🥳🎃👻🦇🎊✨]/);
     expect(
-      screen.getByText("Thanks to Emily and Phoebe for hosting.").compareDocumentPosition(
-        screen.getByText(/Made with 🧈 and ❤️ by/)
-      ) & Node.DOCUMENT_POSITION_FOLLOWING
+      hosting.compareDocumentPosition(screen.getByText(/Made with 🧈 and ❤️ by/)) &
+        Node.DOCUMENT_POSITION_FOLLOWING
     ).toBeTruthy();
     expect(screen.queryByText(/Nuts are used in this kitchen/)).not.toBeInTheDocument();
     expect(screen.queryByText("This event was sponsored by Thrivent through a Thrivent Action Team.")).not.toBeInTheDocument();
