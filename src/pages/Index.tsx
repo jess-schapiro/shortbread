@@ -14,38 +14,12 @@ import { Heart, Users } from "lucide-react";
 import { getConfig } from "@/lib/bakesale-config";
 import { isSessionUnlocked, rememberSessionUnlock } from "@/lib/session-unlock";
 import { isCodeUnlock } from "@/lib/code-unlock";
-import type { BakesaleConfig, DonationType } from "@/types/bakesale";
+import type { BakesaleConfig } from "@/types/bakesale";
 import { EventFooter } from "@/components/EventFooter";
+import { DonationOptions } from "@/components/DonationOptions";
 import { DONATION_SUGGESTION } from "@/lib/event-details";
 import { openVolunteerForm } from "@/lib/volunteer-tracking";
 import halloweenTreats from "@/assets/halloween-treats.png";
-
-const DONATION_STYLE: Record<DonationType, { border: string; bg: string; hover: string }> = {
-  classy: { border: "border-l-4 border-l-primary", bg: "bg-card", hover: "hover:bg-muted" },
-  venmo: { border: "border-l-4 border-l-foreground", bg: "bg-card", hover: "hover:bg-muted" },
-  paypal: { border: "border-l-4 border-l-primary", bg: "bg-card", hover: "hover:bg-muted" },
-  zelle: { border: "border-l-4 border-l-accent", bg: "bg-card", hover: "hover:bg-muted" },
-  cashapp: { border: "border-l-4 border-l-foreground", bg: "bg-card", hover: "hover:bg-muted" },
-  other: { border: "border-l-4 border-l-accent", bg: "bg-card", hover: "hover:bg-muted" },
-};
-
-const DONATION_EMOJI: Record<DonationType, string> = {
-  classy: "🏛️",
-  venmo: "💸",
-  paypal: "💳",
-  zelle: "⚡",
-  cashapp: "💵",
-  other: "🔗",
-};
-
-const DONATION_BADGE: Record<DonationType, { text: string; className: string } | null> = {
-  venmo: { text: "Fastest", className: "bg-accent text-accent-foreground" },
-  classy: { text: "Tax-deductible", className: "bg-primary text-primary-foreground" },
-  paypal: null,
-  zelle: null,
-  cashapp: null,
-  other: null,
-};
 
 /** Render personal message with **bold** and line breaks */
 function renderMessage(text: string) {
