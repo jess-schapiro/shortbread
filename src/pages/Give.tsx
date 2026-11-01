@@ -35,7 +35,7 @@ const Give = () => {
       <section className="px-4 pt-12 pb-6 text-center">
         <div className="max-w-lg mx-auto space-y-5">
           <img src={halloweenTreats} alt="" width={992} height={672} className="mx-auto w-48 h-auto" />
-          <p className="sign-eyebrow">Thank you for coming</p>
+          <p className="sign-eyebrow">Thanks for munching!</p>
           <h1 className="text-5xl md:text-6xl font-display font-black text-foreground leading-[0.95] tracking-tight">
             Enjoyed the <span className="text-primary">treats?</span>
           </h1>
