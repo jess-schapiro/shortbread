@@ -43,7 +43,8 @@ describe("/give page", () => {
 
   it("links to the ingredients page, shows the cause blurb and footer, and tracks Become a Big clicks", () => {
     renderGive();
-    expect(screen.getByRole("link", { name: /See ingredients & allergen info/ })).toHaveAttribute("href", "/cookies");
+    expect(screen.queryByRole("link", { name: /See ingredients & allergen info/ })).not.toBeInTheDocument();
+    expect(screen.queryByText(/Venmo is fastest/)).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "About the Cause" })).toBeInTheDocument();
     expect(screen.getByText(/Made with 🧈 and ❤️ by/)).toBeInTheDocument();
     expect(screen.queryByText(/Nuts are used in this kitchen/)).not.toBeInTheDocument();

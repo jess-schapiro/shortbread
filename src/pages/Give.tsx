@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Users } from "lucide-react";
 import { getConfig } from "@/lib/bakesale-config";
@@ -48,21 +47,8 @@ const Give = () => {
       </section>
 
       {/* Donate options, visible without a modal */}
-      <section className="px-4 pb-6 max-w-lg mx-auto">
+      <section className="px-4 pb-8 max-w-lg mx-auto">
         <DonationOptions options={config.donationOptions} />
-        <p className="text-xs text-center text-muted-foreground font-body pt-3">
-          Venmo is fastest. The BBBS link is the one for a tax-deductible gift.
-        </p>
-      </section>
-
-      {/* Ingredients link */}
-      <section className="px-4 pb-6 max-w-lg mx-auto text-center">
-        <Link
-          to="/cookies"
-          className="text-sm text-primary underline underline-offset-2 hover:text-primary/80 transition-colors font-body inline-flex items-center min-h-11"
-        >
-          See ingredients & allergen info
-        </Link>
       </section>
 
       {/* About the Cause */}
