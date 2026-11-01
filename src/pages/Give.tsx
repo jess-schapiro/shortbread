@@ -93,7 +93,7 @@ const Give = () => {
         </div>
       </section>
 
-      <EventFooter bakerName={config.bakerName} />
+      <EventFooter bakerName={config.bakerName} minimal />
     </div>
   );
 };

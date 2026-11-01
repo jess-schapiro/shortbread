@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Give from "@/pages/Give";
+import { EventFooter } from "@/components/EventFooter";
 import { DEFAULT_CONFIG } from "@/lib/bakesale-config";
 import { openVolunteerForm } from "@/lib/volunteer-tracking";
 
@@ -44,14 +45,21 @@ describe("/give page", () => {
     renderGive();
     expect(screen.getByRole("link", { name: /See ingredients & allergen info/ })).toHaveAttribute("href", "/cookies");
     expect(screen.getByRole("heading", { name: "About the Cause" })).toBeInTheDocument();
-    expect(screen.getByText(/Nuts are used in this kitchen/)).toBeInTheDocument();
-    expect(screen.getByText("This event was sponsored by Thrivent through a Thrivent Action Team.")).toBeInTheDocument();
+    expect(screen.getByText(/Made with 🧈 and ❤️ by/)).toBeInTheDocument();
+    expect(screen.queryByText(/Nuts are used in this kitchen/)).not.toBeInTheDocument();
+    expect(screen.queryByText("This event was sponsored by Thrivent through a Thrivent Action Team.")).not.toBeInTheDocument();
     expect(screen.queryByPlaceholderText(/passcode/i)).not.toBeInTheDocument();
 
     expect(screen.getByText("Want to do more? Littles are waiting for a Big.")).toBeInTheDocument();
     const bigButton = screen.getByRole("button", { name: /Interested in becoming a Big\?/ });
     fireEvent.click(bigButton);
     expect(openVolunteerForm).toHaveBeenCalledTimes(1);
+  });
+
+  it("keeps the nut disclaimer and Thrivent line in the default footer used by the main page", () => {
+    render(<EventFooter bakerName={DEFAULT_CONFIG.bakerName} />);
+    expect(screen.getByText(/Nuts are used in this kitchen/)).toBeInTheDocument();
+    expect(screen.getByText("This event was sponsored by Thrivent through a Thrivent Action Team.")).toBeInTheDocument();
   });
 
   it("renders donation options from a saved config", () => {
