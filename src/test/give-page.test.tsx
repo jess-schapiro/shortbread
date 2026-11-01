@@ -1,9 +1,14 @@
-import { describe, expect, it, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { describe, expect, it, beforeEach, vi } from "vitest";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Give from "@/pages/Give";
 import { DEFAULT_CONFIG } from "@/lib/bakesale-config";
+import { openVolunteerForm } from "@/lib/volunteer-tracking";
+
+vi.mock("@/lib/volunteer-tracking", () => ({
+  openVolunteerForm: vi.fn(),
+}));
 
 function renderGive() {
   return render(
@@ -35,14 +40,18 @@ describe("/give page", () => {
     expect(screen.getByText("Tax-deductible")).toBeInTheDocument();
   });
 
-  it("links to the ingredients page, shows the cause blurb and footer, and omits Become a Big", () => {
+  it("links to the ingredients page, shows the cause blurb and footer, and tracks Become a Big clicks", () => {
     renderGive();
     expect(screen.getByRole("link", { name: /See ingredients & allergen info/ })).toHaveAttribute("href", "/cookies");
     expect(screen.getByRole("heading", { name: "About the Cause" })).toBeInTheDocument();
     expect(screen.getByText(/Nuts are used in this kitchen/)).toBeInTheDocument();
     expect(screen.getByText("This event was sponsored by Thrivent through a Thrivent Action Team.")).toBeInTheDocument();
-    expect(screen.queryByText(/Become a Big/)).not.toBeInTheDocument();
     expect(screen.queryByPlaceholderText(/passcode/i)).not.toBeInTheDocument();
+
+    expect(screen.getByText("Want to do more? Littles are waiting for a Big.")).toBeInTheDocument();
+    const bigButton = screen.getByRole("button", { name: /Learn about becoming a Big/ });
+    fireEvent.click(bigButton);
+    expect(openVolunteerForm).toHaveBeenCalledTimes(1);
   });
 
   it("renders donation options from a saved config", () => {
