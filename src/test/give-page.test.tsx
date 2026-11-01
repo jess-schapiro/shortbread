@@ -49,7 +49,7 @@ describe("/give page", () => {
     expect(screen.queryByPlaceholderText(/passcode/i)).not.toBeInTheDocument();
 
     expect(screen.getByText("Want to do more? Littles are waiting for a Big.")).toBeInTheDocument();
-    const bigButton = screen.getByRole("button", { name: /Learn about becoming a Big/ });
+    const bigButton = screen.getByRole("button", { name: /Interested in becoming a Big\?/ });
     fireEvent.click(bigButton);
     expect(openVolunteerForm).toHaveBeenCalledTimes(1);
   });

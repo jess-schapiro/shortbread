@@ -87,7 +87,7 @@ const Give = () => {
             </p>
             <p className="text-foreground/80 font-body">Want to do more? Littles are waiting for a Big.</p>
             <Button onClick={() => openVolunteerForm()} className="w-full h-auto min-h-12 whitespace-normal bg-accent text-accent-foreground hover:bg-accent/90 font-body font-semibold rounded-xl px-4 py-3">
-              Learn about becoming a Big <span aria-hidden="true">↗</span>
+              Interested in becoming a Big? <span aria-hidden="true">↗</span>
             </Button>
           </div>
         </div>
