@@ -1,0 +1,62 @@
+import { describe, expect, it, beforeEach } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import Give from "@/pages/Give";
+import { DEFAULT_CONFIG } from "@/lib/bakesale-config";
+
+function renderGive() {
+  return render(
+    <HelmetProvider>
+      <MemoryRouter initialEntries={["/give"]}>
+        <Give />
+      </MemoryRouter>
+    </HelmetProvider>
+  );
+}
+
+beforeEach(() => localStorage.clear());
+
+describe("/give page", () => {
+  it("shows the thank-you copy and both donation options without a passcode or modal", () => {
+    renderGive();
+    expect(screen.getByText("Thank you for coming")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /Enjoyed the/ })).toBeInTheDocument();
+    expect(screen.getByText(/Give if you wish\. Suggested gift \$5/)).toBeInTheDocument();
+
+    const venmo = screen.getByRole("link", { name: /Venmo @Jess-Schapiro/ });
+    expect(venmo).toHaveAttribute("href", "https://venmo.com/u/Jess-Schapiro");
+    expect(venmo).toHaveAttribute("target", "_blank");
+    expect(screen.getByText("Fastest")).toBeInTheDocument();
+
+    const classy = screen.getByRole("link", { name: /Donate to BBBSChi/ });
+    expect(classy).toHaveAttribute("href", "https://donate.bbbschgo.org/fundraiser/7486540");
+    expect(classy).toHaveAttribute("target", "_blank");
+    expect(screen.getByText("Tax-deductible")).toBeInTheDocument();
+  });
+
+  it("links to the ingredients page, shows the cause blurb and footer, and omits Become a Big", () => {
+    renderGive();
+    expect(screen.getByRole("link", { name: /See ingredients & allergen info/ })).toHaveAttribute("href", "/cookies");
+    expect(screen.getByRole("heading", { name: "About the Cause" })).toBeInTheDocument();
+    expect(screen.getByText(/Nuts are used in this kitchen/)).toBeInTheDocument();
+    expect(screen.getByText("This event was sponsored by Thrivent through a Thrivent Action Team.")).toBeInTheDocument();
+    expect(screen.queryByText(/Become a Big/)).not.toBeInTheDocument();
+    expect(screen.queryByPlaceholderText(/passcode/i)).not.toBeInTheDocument();
+  });
+
+  it("renders donation options from a saved config", () => {
+    localStorage.setItem(
+      "bakesale-config",
+      JSON.stringify({
+        ...DEFAULT_CONFIG,
+        donationOptions: [
+          { id: "9", type: "other", label: "Custom Gift Link", url: "https://example.com/gift", subtitle: "Custom subtitle" },
+        ],
+      })
+    );
+    renderGive();
+    const custom = screen.getByRole("link", { name: /Custom Gift Link/ });
+    expect(custom).toHaveAttribute("href", "https://example.com/gift");
+  });
+});
