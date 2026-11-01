@@ -79,6 +79,13 @@ const Give = () => {
         </div>
       </section>
 
+      {/* Hosting thanks */}
+      <section className="px-4 pt-2 pb-8 max-w-lg mx-auto text-center">
+        <p className="text-sm text-muted-foreground font-body">
+          Thanks to Emily and Phoebe for hosting.
+        </p>
+      </section>
+
       <EventFooter bakerName={config.bakerName} minimal />
     </div>
   );
