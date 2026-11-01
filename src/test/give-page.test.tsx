@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Give from "@/pages/Give";
+import { EventFooter } from "@/components/EventFooter";
 import { DEFAULT_CONFIG } from "@/lib/bakesale-config";
 import { openVolunteerForm } from "@/lib/volunteer-tracking";
 
